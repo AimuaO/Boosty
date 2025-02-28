@@ -1,7 +1,19 @@
-export default function App() {
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Homepage from "./pages/Homepage";
+import Header from "./components/Header";
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
-  )
-}
+    <div className="font-openSans">
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
+
+export default App;
