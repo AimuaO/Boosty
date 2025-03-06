@@ -148,14 +148,18 @@ const DesktopHeader = () => {
   };
 
   return (
-    <header className="h-[65px] flex items-center justify-center px-32 py-10 shadow-lg shadow-black/5 ipad-air:px-16">
+    <header className="h-[65px] flex items-center justify-center px-32 py-10 shadow-lg shadow-black/5 ipad-air:px-16 fixed top-0 left-0 w-full bg-white z-50">
       <nav className="flex items-center justify-between w-full">
         <img src="/boostylogo.svg" alt="Boosty" />
         <ul className="flex items-center justify-center gap-10">
           <li>
             <Link
               to="/"
-              className={isActive("/") ? "font-bold" : "font-normal"}
+              className={
+                isActive("/")
+                  ? "font-bold"
+                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
+              }
             >
               Home
             </Link>
@@ -164,7 +168,9 @@ const DesktopHeader = () => {
             <Link
               to="/become-a-partner"
               className={
-                isActive("/become-a-partner") ? "font-bold" : "font-normal"
+                isActive("/become-a-partner")
+                  ? "font-bold"
+                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
               }
             >
               Become a partner
@@ -174,14 +180,16 @@ const DesktopHeader = () => {
             <Link
               to="/fund-solar-projects"
               className={
-                isActive("/fund-solar-projects") ? "font-bold" : "font-normal"
+                isActive("/fund-solar-projects")
+                  ? "font-bold"
+                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
               }
             >
               Want to fund solar projects?
             </Link>
           </li>
         </ul>
-        <button className="w-[102px] h-[36px] px-[24px] py-[6px] rounded-full border-2 border-boosty_green flex items-center justify-center bg-[#E8F2F2]">
+        <button className="w-max h-auto px-[35px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2]">
           Sign In
         </button>
       </nav>
