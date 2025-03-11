@@ -2,15 +2,15 @@ import React from "react";
 
 const PowerNigeria = () => {
   return (
-    <section className="min-h-max py-[80px] pt-[80px] lg:pt-[150px] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-10 lg:px-60">
-      <div>
+    <section className="min-h-max py-[80px] pt-[30rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-10 lg:px-36 gap-14 ">
+      <div className="w-full">
         <img
           src="/powering.png"
           alt="Powering Nigeria"
           className="w-full h-[365px]"
         />
       </div>
-      <div className="w-full lg:w-[80%] mt-10 lg:mt-0">
+      <div className="w-full lg:w-[90%] mt-10 lg:mt-0">
         <h2 className="text-[30px] leading-[40px] font-bold">
           Powering Nigeria, One Solar System at a Time
         </h2>

@@ -19,7 +19,7 @@ const FAQ = ({
       <div className="min-h-max bg-[#F3F8F8] py-14 lg:py-20 pl-10 lg:pl-20 pr-10 lg:pr-60 rounded-l-0 lg:rounded-l-[35px]">
         <h2 className="text-[35px] font-[700] mb-10">{title}</h2>
 
-        <div className="space-y-0 border border-[#374646] w-full lg:w-[60%] rounded-md">
+        <div className="space-y-0 border border-[#374646] w-full lg:w-[90%] rounded-md">
           {items.map((item, index) => (
             <div
               key={index}

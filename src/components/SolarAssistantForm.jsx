@@ -5,9 +5,9 @@ const SolarAssistantForm = () => {
   const [businessType, setBusinessType] = useState("business");
 
   return (
-    <div className="bg-white w-full lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-md relative -mb-0 lg:-mb-48 text-base py-[24px]">
+    <div className="bg-white lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-md absolute text-base py-[24px] -top-16 lg:-top-44 right-0">
       {/* Top section with icon and speech bubble */}
-      <div className="absolute left-6 top-6 flex items-center gap-3 justify-between">
+      <div className="flex items-center gap-3 justify-center">
         {/* Custom icon */}
         <img src="/boosty.gif" alt="" className="w-[59.9px] h-[57.863px]" />
 
@@ -21,7 +21,7 @@ const SolarAssistantForm = () => {
       </div>
 
       {/* Form content */}
-      <form className="pt-32 px-6">
+      <form className="pt-10 px-6">
         <div className="bg-[#F8F6F4] border-[0.2px] border-boosty_yellow rounded-xl p-[24px]">
           {/* Radio buttons */}
           <div className="flex space-x-5 mb-8">
@@ -42,7 +42,7 @@ const SolarAssistantForm = () => {
                   } flex items-center justify-center`}
                 >
                   {businessType === "business" && (
-                    <div className="w-7 h-7 text-amber-400 rounded-full flex items-center justify-center">
+                    <div className="w-7 h-7 text-amber-400 rounded-full flex items-center justify-center font-bold">
                       &#10003;
                     </div>
                   )}
@@ -70,7 +70,7 @@ const SolarAssistantForm = () => {
                   } flex items-center justify-center`}
                 >
                   {businessType === "home" && (
-                    <div className="w-7 h-7 text-amber-400 rounded-full flex items-center justify-center">
+                    <div className="w-7 h-7 text-amber-400 rounded-full flex items-center justify-center font-bold">
                       &#10003;
                     </div>
                   )}
