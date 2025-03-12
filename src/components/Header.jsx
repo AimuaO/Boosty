@@ -32,9 +32,9 @@ const MobileHeader = () => {
       {/* Mobile Header - Always visible */}
       <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm px-[20px] py-4">
         <div className="flex items-center justify-between">
-          <div className="w-1/3">
+          <Link to="/" className="w-1/3">
             <img src="/boostylogo.svg" alt="Boosty" className="h-8 w-[98px]" />
-          </div>
+          </Link>
 
           <div className="w-1/3 flex justify-center">
             <button

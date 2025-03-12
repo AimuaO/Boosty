@@ -4,6 +4,10 @@ import Homepage from "./pages/Homepage";
 import Header from "./components/Header";
 import BecomeAPartner from "./pages/BecomeAPartner";
 import FundSolarProjects from "./pages/FundSolarProjects";
+import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const App = () => {
   return (
@@ -14,7 +18,14 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/become-a-partner" element={<BecomeAPartner />} />
           <Route path="/fund-solar-projects" element={<FundSolarProjects />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

@@ -4,7 +4,6 @@ import PowerNigeria from "../components/PowerNigeria";
 import Calculation from "../components/Calculation";
 import Benefits from "../components/Benefits";
 import FAQ from "../components/FAQ";
-import Footer from "../components/Footer";
 
 const Homepage = () => {
   const solarFAQs = [
@@ -40,7 +39,6 @@ const Homepage = () => {
       <Calculation />
       <Benefits />
       <FAQ items={solarFAQs} />
-      <Footer />
     </div>
   );
 };

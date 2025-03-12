@@ -5,7 +5,7 @@ const SolarAssistantForm = () => {
   const [businessType, setBusinessType] = useState("business");
 
   return (
-    <div className="bg-white lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-md absolute text-base py-[24px] -top-16 lg:-top-44 right-0">
+    <div className="bg-white md:w-full lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-xl absolute text-base py-[24px] -top-16 lg:-top-44 right-0">
       {/* Top section with icon and speech bubble */}
       <div className="flex items-center gap-3 justify-center">
         {/* Custom icon */}

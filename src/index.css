@@ -2,7 +2,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-input[required] + label:after {
-  content: "*", color red;
-}

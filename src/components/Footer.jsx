@@ -4,9 +4,9 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#374646] mt-20 px-[20px] lg:px-20 py-14 text-boosty_yellow font-[700]">
+    <footer className="bg-[#374646] px-[20px] lg:px-20 py-14 text-boosty_yellow font-[700]">
       <div className="border-b-[0.5px] border-boosty_yellow pb-14 grid grid-col-1 lg:grid-cols-4 gap-8">
-        <div>
+        <div className="pr-7">
           <h3>Subscribe to Newsletter</h3>
           <div className="mt-3 relative w-max">
             <input
@@ -23,13 +23,28 @@ const Footer = () => {
           <span>Company</span>
           <ul className="space-y-1 font-normal">
             <li>
-              <a href="/">Solar Assistant</a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Solar Assistant
+              </a>
             </li>
             <li>
-              <a href="/">Become a Partner</a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Become a Partner
+              </a>
             </li>
             <li>
-              <a href="/">Fund Solar Projects</a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Fund Solar Projects
+              </a>
             </li>
           </ul>
         </div>
@@ -37,13 +52,28 @@ const Footer = () => {
           <span>Resources & Legal</span>
           <ul className="space-y-1 font-normal">
             <li>
-              <a href="/">FAQs</a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                FAQs
+              </a>
             </li>
             <li>
-              <a href="/">Terms & conditions</a>
+              <a
+                href="/terms-and-conditions"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Terms & conditions
+              </a>
             </li>
             <li>
-              <a href="/">Privacy Policy</a>
+              <a
+                href="/privacy-policy"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Privacy Policy
+              </a>
             </li>
           </ul>
         </div>
@@ -51,10 +81,20 @@ const Footer = () => {
           <span>Contact Us</span>
           <ul className="space-y-1 font-normal">
             <li>
-              <a href="/">Email: boostytech50@gmail.com </a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Email: boostytech50@gmail.com{" "}
+              </a>
             </li>
             <li>
-              <a href="/">Tel: +234 9088 8888</a>
+              <a
+                href="/"
+                className="hover:underline underline-offset-4 duration-150 transition-all"
+              >
+                Tel: +234 9088 8888
+              </a>
             </li>
           </ul>
         </div>
