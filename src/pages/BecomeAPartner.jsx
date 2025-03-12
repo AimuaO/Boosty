@@ -72,8 +72,8 @@ const BecomeAPartner = () => {
               placeholder="you@yourbusiness.com"
               required
             />
-            <div className="flex gap-[1rem] w-full">
-              <div className="w-1/2">
+            <div className="flex flex-col md:flex-row gap-[1rem] w-full">
+              <div className="w-full md:w-1/2">
                 <div className="text-[14px] lg:text-base font-medium my-[10px]">
                   <label htmlFor="">First Name</label>
                 </div>
@@ -84,7 +84,7 @@ const BecomeAPartner = () => {
                 />
               </div>
 
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <div className="text-[14px] lg:text-base font-medium my-[10px]">
                   <label htmlFor="">Last Name</label>
                 </div>
@@ -105,8 +105,8 @@ const BecomeAPartner = () => {
               placeholder="Boosty"
               required
             />
-            <div className="flex gap-[1rem] mt-[30px]">
-              <div className="w-1/2">
+            <div className="flex flex-col md:flex-row gap-[1rem] mt-[30px]">
+              <div className="w-full md:w-1/2">
                 <div className="text-[14px] lg:text-base font-medium my-[10px]">
                   <label htmlFor="">Job Title</label>
                 </div>
@@ -117,7 +117,7 @@ const BecomeAPartner = () => {
                 />
               </div>
 
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <div className="text-[14px] lg:text-base font-medium my-[10px]">
                   <label htmlFor="">Phone Number</label>
                 </div>
@@ -131,7 +131,7 @@ const BecomeAPartner = () => {
 
             <p className="mt-[30px]">Which one are you</p>
             {/* Radio buttons */}
-            <div className="flex space-x-2 lg:space-x-5 mb-8 mt-2 w-full">
+            <div className="flex flex-col md:flex-row space-x-0 md:space-x-2 lg:space-x-5 gap-3 md:gap-0 mb-8 mt-2 w-full">
               <label className="flex items-center cursor-pointer">
                 <div className="relative">
                   <input
@@ -211,7 +211,7 @@ const BecomeAPartner = () => {
                   </div>
                 </div>
                 <span className="text-gray-800 text-sm lg:text-base font-medium ml-1 lg:ml-3 w-max">
-                  Distributor
+                  Retailer/Distributor
                 </span>
               </label>
             </div>
@@ -229,7 +229,7 @@ const BecomeAPartner = () => {
         </div>
       </div>
       {/* Become A Partner */}
-      <div className="min-h-max py-10 lg:py-20 grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-10 lg:px-36 gap-14 ">
+      <div className="min-h-max py-10 lg:py-20 grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-10 lg:px-36 gap-14 ">
         <div>
           <img src="/becomeapartner.svg" alt="" />
         </div>
@@ -241,7 +241,7 @@ const BecomeAPartner = () => {
           <ul className="space-y-3 w-full lg:w-[90%] list-disc pl-8 text-[15px] lg:text-base">
             <li className="leading-[1.7]">
               <span className="font-bold">Step 1:</span> Submit your business
-              details using the partnership form.{" "}
+              details using the partnership form.
             </li>
             <li>
               <span className="font-bold">Step 2:</span> Our team will review

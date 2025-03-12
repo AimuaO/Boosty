@@ -30,7 +30,7 @@ const MobileHeader = () => {
   return (
     <>
       {/* Mobile Header - Always visible */}
-      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm px-[20px] py-4">
+      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm px-[20px] md:px-[35px] py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="w-1/3">
             <img src="/boostylogo.svg" alt="Boosty" className="h-8 w-[98px]" />

@@ -2,9 +2,9 @@ import React from "react";
 
 const Benefits = () => {
   return (
-    <section className="px-12 md:px-36 py-10 md:py-20">
-      <h2 className="text-[35px] font-[700] w-full lg:w-[55%] leading-[40px]">
-        Designed for Nigerians,<br /> Built for Your Energy Needs
+    <section className="px-7 md:px-36 py-10 md:py-20">
+      <h2 className="text-[30px] md:text-[35px] font-[700] w-full lg:w-[55%] leading-[40px]">
+        Designed for Nigerians, Built for Your Energy Needs
       </h2>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-14 text-[#2D2B2B] mt-8">

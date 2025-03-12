@@ -5,16 +5,20 @@ const SolarAssistantForm = () => {
   const [businessType, setBusinessType] = useState("business");
 
   return (
-    <div className="bg-white md:w-full lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-xl absolute text-base py-[24px] -top-16 lg:-top-44 right-0">
+    <div className="bg-white w-full md:w-full lg:w-[434px] min-h-max lg:min-h-[523px] rounded-2xl shadow-xl absolute text-base py-[24px] -top-16 lg:-top-44 right-0">
       {/* Top section with icon and speech bubble */}
-      <div className="flex items-center gap-3 justify-center">
+      <div className="flex items-center gap-3 justify-center px-5 md:px-0">
         {/* Custom icon */}
         <img src="/boosty.gif" alt="" className="w-[59.9px] h-[57.863px]" />
 
         {/* Speech bubble */}
         <div className="relative ml-4">
-          <img src="/bubble.svg" alt="" className="w-[296px] h-[78px]" />
-          <span className="absolute inset-0 flex items-center justify-center font-bold leading-[32px]">
+          <img
+            src="/bubble.svg"
+            alt=""
+            className="w-auto md:w-[296px] h-[78px]"
+          />
+          <span className="absolute inset-0 flex items-center justify-center font-bold leading-[32px] text-sm md:text-base">
             Wetin you wan use Solar do?
           </span>
         </div>
@@ -24,7 +28,7 @@ const SolarAssistantForm = () => {
       <form className="pt-10 px-6">
         <div className="bg-[#F8F6F4] border-[0.2px] border-boosty_yellow rounded-xl p-[24px]">
           {/* Radio buttons */}
-          <div className="flex space-x-5 mb-8">
+          <div className="flex flex-col md:flex-row space-x-0 md:space-x-5 gap-4 md:gap-0 mb-8 w-full">
             <label className="flex items-center cursor-pointer">
               <div className="relative">
                 <input
@@ -89,7 +93,7 @@ const SolarAssistantForm = () => {
             </label>
             <input
               type="text"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none"
+              className="w-full px-4 py-3 border border-[#A6A0A3] rounded-md focus:outline-none"
             />
           </div>
 
@@ -100,7 +104,7 @@ const SolarAssistantForm = () => {
             </label>
             <input
               type="text"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none"
+              className="w-full px-4 py-3 border border-[#A6A0A3] rounded-md focus:outline-none"
             />
           </div>
         </div>

@@ -4,8 +4,8 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#374646] px-[20px] lg:px-20 py-14 text-boosty_yellow font-[700]">
-      <div className="border-b-[0.5px] border-boosty_yellow pb-14 grid grid-col-1 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#374646] px-[20px] md:px-14 lg:px-20 py-14 text-boosty_yellow font-[700]">
+      <div className="border-b-[0.5px] border-boosty_yellow pb-14 grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="pr-7">
           <h3>Subscribe to Newsletter</h3>
           <div className="mt-3 relative w-max">

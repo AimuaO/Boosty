@@ -16,7 +16,7 @@ const FAQ = ({
 
   return (
     <div className={`pl-0 lg:pl-20 ${className}`}>
-      <div className="min-h-max bg-[#F3F8F8] py-14 md:py-20 pl-10 md:pl-20 pr-10 md:pr-16 lg:pr-60 rounded-l-0 lg:rounded-l-[15px] mb-20">
+      <div className="min-h-max bg-[#F3F8F8] py-14 md:py-20 pl-6 md:pl-36 pr-6 md:pr-20 lg:pr-60 rounded-l-0 lg:rounded-l-[15px] mb-20">
         <h2 className="text-[35px] font-[700] mb-10">{title}</h2>
 
         <div className="space-y-0 border border-[#374646] w-full lg:w-[90%] rounded-md">

@@ -2,7 +2,7 @@ import React from "react";
 
 const PowerNigeria = () => {
   return (
-    <section className="min-h-max py-[80px] pt-[32rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-10 md:px-36 gap-14 ">
+    <section className="min-h-max py-[80px] pt-[32rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-36 gap-14 ">
       <div className="w-full">
         <img
           src="/powering.png"
@@ -10,7 +10,7 @@ const PowerNigeria = () => {
           className="w-full h-[365px]"
         />
       </div>
-      <div className="w-full lg:w-[90%] mt-10 md:mt-0">
+      <div className="w-full lg:w-[90%] mt-0 md:mt-0">
         <h2 className="text-[30px] leading-[40px] font-bold">
           Powering Nigeria, One Solar System at a Time
         </h2>
