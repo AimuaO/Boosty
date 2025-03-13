@@ -14,7 +14,7 @@ export default {
         btn_text: "#F5C13C",
       },
       screens: {
-        "ipad-air": "820px",
+        ipad: "820px",
       },
     },
   },

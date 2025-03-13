@@ -1,8 +1,12 @@
 import React from "react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ hasFAQ = false }) => {
   const year = new Date().getFullYear();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   return (
     <footer className="bg-[#374646] px-[20px] md:px-14 lg:px-20 py-14 text-boosty_yellow font-[700]">
       <div className="border-b-[0.5px] border-boosty_yellow pb-14 grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -21,14 +25,26 @@ const Footer = () => {
         </div>
         <div className="space-y-4">
           <span>Company</span>
-          <ul className="space-y-1 font-normal">
+          <ul className="space-y-3 font-normal">
             <li>
-              <a
-                href="/"
-                className="hover:underline underline-offset-4 duration-150 transition-all"
-              >
-                Solar Assistant
-              </a>
+              {isHomePage ? (
+                <ScrollLink
+                  to="solar-assistant"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className="hover:underline underline-offset-4 duration-150 transition-all cursor-pointer"
+                >
+                  Solar Assistant
+                </ScrollLink>
+              ) : (
+                <RouterLink
+                  to="#solar-assistant"
+                  className="hover:underline underline-offset-4 duration-150 transition-all"
+                >
+                  Solar Assistant
+                </RouterLink>
+              )}
             </li>
             <li>
               <a
@@ -40,7 +56,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="/fund-solar-projects"
                 className="hover:underline underline-offset-4 duration-150 transition-all"
               >
                 Fund Solar Projects
@@ -50,14 +66,21 @@ const Footer = () => {
         </div>
         <div className="space-y-4">
           <span>Resources & Legal</span>
-          <ul className="space-y-1 font-normal">
+          <ul className="space-y-3 font-normal">
             <li>
-              <a
-                href="/"
-                className="hover:underline underline-offset-4 duration-150 transition-all"
-              >
-                FAQs
-              </a>
+              {hasFAQ && (
+                <li>
+                  <ScrollLink
+                    to="faq"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    className="hover:underline underline-offset-4 duration-150 transition-all cursor-pointer"
+                  >
+                    FAQ
+                  </ScrollLink>
+                </li>
+              )}
             </li>
             <li>
               <a
@@ -79,10 +102,10 @@ const Footer = () => {
         </div>
         <div className="space-y-4">
           <span>Contact Us</span>
-          <ul className="space-y-1 font-normal">
+          <ul className="space-y-3 font-normal">
             <li>
               <a
-                href="/"
+                href="mailto:boostytech50@gmail.com"
                 className="hover:underline underline-offset-4 duration-150 transition-all"
               >
                 Email: boostytech50@gmail.com{" "}
@@ -90,7 +113,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="tel:+234 9088 8888"
                 className="hover:underline underline-offset-4 duration-150 transition-all"
               >
                 Tel: +234 9088 8888

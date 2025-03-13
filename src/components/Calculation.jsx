@@ -4,11 +4,9 @@ const Calculation = () => {
   return (
     <section className="text-white">
       <div className="w-full lg:w-[95%] bg-boosty_green py-12 md:py-20 pl-6 md:pl-36 pr-10 md:pr-20 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-start lg:place-items-center gap-7 md:gap-14 rounded-r-[15px] lg:rounded-r-[15px]">
-        <div className="mb-10 lg:mb-0">
+        <div className="mb-6 lg:mb-0">
           <h2 className="text-[30px] md:text-[35px] font-[700] leading-[45px] mb-6">
-            From Calculation to <br className="hidden md:block" /> Installation
-            in 3 Simple <br />
-            Steps
+            From Calculation to Installation in 3 Simple Steps
           </h2>
           <button className="w-max h-auto px-[35px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2] text-[#202D2D]">
             Start Your Journey Now

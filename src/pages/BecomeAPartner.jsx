@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "../components/Footer";
 
 const BecomeAPartner = () => {
   const [userType, setUserType] = useState("Manufacturer");
@@ -254,6 +255,7 @@ const BecomeAPartner = () => {
           </ul>
         </div>
       </div>
+      <Footer hasFAQ={false} />
     </>
   );
 };

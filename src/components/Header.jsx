@@ -148,7 +148,7 @@ const DesktopHeader = () => {
   };
 
   return (
-    <header className="h-[65px] flex items-center justify-center px-32 py-10 shadow-lg shadow-black/5 ipad-air:px-16 fixed top-0 left-0 w-full bg-white z-50">
+    <header className="h-[65px] flex items-center justify-center px-32 py-10 shadow-lg shadow-black/5 ipad:px-16 fixed top-0 left-0 w-full bg-white z-50">
       <nav className="flex items-center justify-between w-full">
         <img src="/boostylogo.svg" alt="Boosty" />
         <ul className="flex items-center justify-center gap-10">

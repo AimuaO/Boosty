@@ -3,7 +3,7 @@ import SolarAssistantForm from "./SolarAssistantForm";
 
 const HeroSection = () => {
   return (
-    <section className="h-1/2 lg:min-h-[60vh] bg-boosty_yellow mt-0 lg:mt-[80px] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center gap-14 px-[30px] md:px-36 py-20 lg:pt-0">
+    <section className="h-1/2 lg:min-h-[60vh] bg-boosty_yellow mt-0 lg:mt-[80px] grid grid-cols-1 ipad:grid-cols-1 lg:grid-cols-2 place-items-center place-content-center gap-14 px-[30px] md:px-36 py-20 lg:pt-0">
       <div className="mt-2 lg:mt-20">
         <h1 className="text-body_text text-[32px] md:text-[45px] leading-[39px] md:leading-[50px] lg:leading-[60px] font-bold w-full md:w-[90%]">
           Start Your Solar Journey with the Solar Assistant 👉🏾
@@ -14,7 +14,10 @@ const HeroSection = () => {
         </p>
       </div>
 
-      <div className="flex mt-16 shadow-lg relative w-full px-32 lg:px-0">
+      <div
+        id="solar-assistant"
+        className="flex mt-16 shadow-lg relative w-full"
+      >
         <SolarAssistantForm />
       </div>
     </section>

@@ -2,7 +2,7 @@ import React from "react";
 
 const PowerNigeria = () => {
   return (
-    <section className="min-h-max py-[80px] pt-[32rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-36 gap-14 ">
+    <section className="min-h-max py-[80px] pt-[34rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-36 gap-14 ">
       <div className="w-full">
         <img
           src="/powering.png"
