@@ -2,33 +2,31 @@ import React from "react";
 
 const Calculation = () => {
   return (
-    <section className="text-white">
-      <div className="w-full lg:w-[95%] bg-boosty_green py-12 md:py-20 pl-6 md:pl-36 pr-10 md:pr-20 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-start lg:place-items-center gap-7 md:gap-14 rounded-r-[15px] lg:rounded-r-[15px]">
-        <div className="mb-6 lg:mb-0">
-          <h2 className="text-[30px] md:text-[35px] font-[700] leading-[45px] mb-6">
-            From Calculation to Installation in 3 Simple Steps
-          </h2>
-          <button className="w-max h-auto px-[35px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2] text-[#202D2D]">
+    <section className="pr-[128px]">
+      <div className="bg-boosty_green text-white rounded-r-[16px] py-[96px] pl-[230px] pr-[120px] grid grid-cols-2 items-center h-[495px] gap-[82px]">
+        <div className="">
+          <h2 className="text-[30px] font-[700]">Get Solar in 3 Easy Steps </h2>
+          <button className="px-[24px] py-[10px] bg-[#E8F2F2] mt-[24px] font-[700] leading-[24px] text-[#202D2D] rounded-[99px] border-2 border-boosty_green hover:border-boosty_yellow duration-200 h-[44px]">
             Start Your Journey Now
           </button>
         </div>
 
-        <div className="border border-[#769090] rounded-xl py-6 md:py-10 px-6 space-y-8">
-          <div className="flex items-center justify-center gap-5 font-[600]">
+        <div className="border border-[#769090] p-[47px] space-y-[24px] rounded-[8px]">
+          <div className="flex items-center justify- gap-5 w-full">
             <img src="/1icon.svg" alt="" />
-            <p className="leading-[24px] w-[70%]">
+            <p className="leading-[24px]">
               Use the Solar Assistant to estimate your energy needs and savings.
             </p>
           </div>
-          <div className="flex items-center justify-center gap-5 font-[600]">
+          <div className="flex items-center justify- gap-5 w-full">
             <img src="/2icon.svg" alt="" />
-            <p className="leading-[24px] w-[70%]">
+            <p className="leading-[24px]">
               Customize your system, and explore financing options.
             </p>
           </div>
-          <div className="flex items-center justify-center gap-5 font-[600]">
+          <div className="flex items-center justify- gap-5 w-full">
             <img src="/2icon.svg" alt="" />
-            <p className="leading-[24px] w-[70%]">
+            <p className="leading-[24px]">
               Schedule installation and enjoy reliable, clean energy.
             </p>
           </div>

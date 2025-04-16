@@ -2,9 +2,9 @@ import React from "react";
 import HeroSection from "../components/HeroSection";
 import PowerNigeria from "../components/PowerNigeria";
 import Calculation from "../components/Calculation";
-import Benefits from "../components/Benefits";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import TalkAi from "../components/TalkAi";
 
 const Homepage = () => {
   const solarFAQs = [
@@ -38,8 +38,8 @@ const Homepage = () => {
       <HeroSection />
       <PowerNigeria />
       <Calculation />
-      <Benefits />
       <FAQ items={solarFAQs} />
+      <TalkAi />
       <Footer hasFAQ={true} />
     </div>
   );

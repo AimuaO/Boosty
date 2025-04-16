@@ -2,23 +2,18 @@ import React from "react";
 
 const PowerNigeria = () => {
   return (
-    <section className="min-h-max py-[80px] pt-[34rem] lg:pt-[10rem] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-36 gap-14 ">
-      <div className="w-full">
-        <img
-          src="/powering.png"
-          alt="Powering Nigeria"
-          className="w-full h-[365px]"
-        />
+    <section className="py-[120px] px-[229px] grid grid-cols-2 gap-[82px] place-items-center">
+      <div className="">
+        <img src="/powerSection.png" alt="Powering Nigeria" className="" />
       </div>
-      <div className="w-full lg:w-[90%] mt-0 md:mt-0">
-        <h2 className="text-[30px] leading-[40px] font-bold">
-          Powering Nigeria, One Solar System at a Time
+      <div className="">
+        <h2 className="text-[30px] font-[700] leading-[40px] w-[95%]">
+          Solar Made Easy with Help From Our AI Assistant
         </h2>
-        <p className="leading-[24px] mt-5">
-          Millions in Nigeria face unreliable electricity, rising petrol costs,
-          and the complexity of adopting solar energy. Boosty’s Solar Assistant
-          simplifies energy calculations, customizes solutions, and offers
-          flexible financing to make clean energy accessible.
+        <p className="mt-[16px] leading-[24px] font-[600] w-[95%]">
+          We know going solar can feel confusing. That’s why we built a smart
+          assistant to help you choose the right system, find payment options
+          that work for you, and get installed, all in one place.
         </p>
       </div>
     </section>

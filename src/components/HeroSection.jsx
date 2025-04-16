@@ -3,21 +3,18 @@ import SolarAssistantForm from "./SolarAssistantForm";
 
 const HeroSection = () => {
   return (
-    <section className="h-1/2 lg:min-h-[60vh] bg-boosty_yellow mt-0 lg:mt-[80px] grid grid-cols-1 ipad:grid-cols-1 lg:grid-cols-2 place-items-center place-content-center gap-14 px-[30px] md:px-36 py-20 lg:pt-0">
-      <div className="mt-2 lg:mt-20">
-        <h1 className="text-body_text text-[32px] md:text-[45px] leading-[39px] md:leading-[50px] lg:leading-[60px] font-bold w-full md:w-[90%]">
-          Start Your Solar Journey with the Solar Assistant 👉🏾
+    <section className="bg-[#F3B921E0] px-[229px] py-[120px] mt-[80px] grid grid-cols-2 place-items-center gap-[82px] text-body_text">
+      <div className="">
+        <h1 className="text-[40px] font-[700] leading-tight">
+          Need solar? Just talk to the AI assistant 👉🏾
         </h1>
-        <p className="text-body_text leading-[20px] md:leading-[32px] font-normal lg:font-[600] text-base md:text-[20px] mt-2 lg:mt-5 w-full md:w-[85%] lg:w-[95%]">
-          Calculate your energy needs, customize your system, and choose
-          financing options.
+        <p className="mt-[16px] leading-[24px] font-[600] text-[18px] w-[90%]">
+          Say what you need. The assistant will help you choose a system, find
+          payment options, and book your installation.
         </p>
       </div>
 
-      <div
-        id="solar-assistant"
-        className="flex mt-16 shadow-lg relative w-full"
-      >
+      <div id="solar-assistant" className="">
         <SolarAssistantForm />
       </div>
     </section>

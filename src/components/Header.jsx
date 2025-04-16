@@ -189,7 +189,7 @@ const DesktopHeader = () => {
             </Link>
           </li>
         </ul>
-        <button className="w-max h-auto px-[35px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2]">
+        <button className="w-max h-[36px] px-[24px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2] leading-[24px]">
           Sign In
         </button>
       </nav>
