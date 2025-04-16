@@ -89,7 +89,7 @@ const SolarAssistant = ({ buttonText = "Tap here to start talking" }) => {
 
   // Voice selection screen - full page with voice options (like Image 1)
   const renderVoiceSelection = () => (
-    <div className="fixed inset-0  flex flex-col items-center justify-center p-4 z-50">
+    <div className="fixed inset-0  flex flex-col items-center justify-center p-4 z-50 bg-[#F3B921E0]">
       <div className="absolute top-4 left-4 flex space-x-2">
         <button className="bg-gray-800 text-white rounded-full px-4 py-1">
           Pidgin
