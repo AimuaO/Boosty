@@ -6,12 +6,12 @@ const PrivacyPolicy = () => {
     <>
       <div>
         {/* Hero Section */}
-        <div className="h-1/2 lg:min-h-max bg-boosty_yellow mt-0 lg:mt-[80px] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-[20px] lg:px-36 py-[40px] lg:py-20 lg:pt-0">
+        <div className="h-[290px] bg-boosty_yellow mt-0 lg:mt-[64px] grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-[20px] md:px-[109px] lg:px-[229px] py-[40px] lg:py-20 lg:pt-0">
           <div className="mt-2 lg:mt-20">
-            <h1 className="text-body_text text-[40px] leading-tight lg:text-[45px] lg:leading-[60px] font-bold w-full">
+            <h1 className="text-body_text text-[40px] leading-tight lg:text-[45px] lg:leading-[50px] font-bold w-full">
               Privacy Policy
             </h1>
-            <p className="mt-5 font-normal">
+            <p className="mt-5 w-[85%] font-[600]">
               Boosty values your privacy. This Privacy Policy outlines how we
               collect, use, and protect your information when you use our
               website and services.
@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
         </div>
 
         {/* Description */}
-        <div className="px-[20px] lg:px-36 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
+        <div className="px-[20px] md:px-[109px] lg:px-[229px] py-14 lg:py-[64px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
           <div>
             <h2 className="font-bold text-[30px]">Information We Collect</h2>
             <p className="mt-2">

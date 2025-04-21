@@ -95,13 +95,13 @@ const FundSolarProjects = () => {
   return (
     <>
       <div className="">
-        <div className="bg-boosty_yellow min-h-screen px-[30px] lg:px-36 pt-14 lg:pt-32 pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-center gap-14">
-          <div className="w-full px-8 lg:px-0">
-            <h1 className="font-bold text-[32px] lg:text-[40px] leading-tight">
+        <div className="bg-[#F3B921E0] px-[20px] md:px-[72px] lg:px-[229px] py-[32px] md:py-[96px] lg:py-[120px] grid grid-cols-1 lg:grid-cols-2 place-items-center gap-[32px] lg:gap-[82px] text-body_text lg:h-max">
+          <div className="w-full md:w-[70%] lg:w-full">
+            <h1 className="font-bold text-[30px] lg:text-[40px] leading-tight">
               Join Us in <br /> Powering Nigeria
             </h1>
 
-            <div className="space-y-4 mt-8 mb-0 lg:mb-8 w-full lg:w-[85%]">
+            <div className="space-y-4 mt-3 lg:mt-8 mb-0 lg:mb-8 w-full lg:w-[85%] font-[600]">
               <div className="flex gap-[1rem]">
                 <div>
                   <p className="mt-2">
@@ -147,7 +147,7 @@ const FundSolarProjects = () => {
               <h1 className="text-[19px] lg:text-[25px] font-[700] mb-4">
                 Submit Your Details and We Will <br /> Send an Email
               </h1>
-              <div className="text-[14px] lg:text-base font-medium my-[10px]">
+              <div className="text-base font-[600] my-[10px]">
                 <label>
                   Business Email <span className="text-[#B78A16]">*</span>
                 </label>
@@ -158,9 +158,9 @@ const FundSolarProjects = () => {
                 placeholder="you@yourbusiness.com"
                 required
               />
-              <div className="flex gap-[1rem] w-full">
-                <div className="w-1/2">
-                  <div className="text-[14px] lg:text-base font-medium my-[10px]">
+              <div className="flex flex-col md:flex-row gap-[1rem] w-full">
+                <div className="w-full md:w-1/2">
+                  <div className="text-base font-[600] my-[10px]">
                     <label>
                       First Name <span className="text-[#B78A16]">*</span>
                     </label>
@@ -172,8 +172,8 @@ const FundSolarProjects = () => {
                   />
                 </div>
 
-                <div className="w-1/2">
-                  <div className="text-[14px] lg:text-base font-medium my-[10px]">
+                <div className="w-full md:w-1/2">
+                  <div className="text-base font-[600] my-[10px]">
                     <label>
                       Last Name <span className="text-[#B78A16]">*</span>
                     </label>
@@ -186,10 +186,8 @@ const FundSolarProjects = () => {
                   />
                 </div>
               </div>
-              <div className="text-[14px] lg:text-base font-medium my-[10px] mt-[30px]">
-                <label>
-                  Company Name <span className="text-[#B78A16]">*</span>
-                </label>
+              <div className="text-base font-[600] my-[10px] mt-[30px]">
+                <label>Company Name</label>
               </div>
               <input
                 className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -199,7 +197,7 @@ const FundSolarProjects = () => {
               />
               <div className="flex gap-[1rem] mb-10">
                 <div className="w-full">
-                  <div className="text-[14px] lg:text-base font-medium my-[10px] mt-[30px]">
+                  <div className="text-base font-[600] my-[10px] mt-[30px]">
                     <label>
                       Investment Interest Area{" "}
                       <span className="text-[#B78A16]">*</span>
@@ -220,7 +218,7 @@ const FundSolarProjects = () => {
                 <div>
                   <button
                     type="button"
-                    className="px-[24px] py-[10px] text-boosty_yellow text-lg font-medium bg-body_text rounded-full hover:bg-boosty_green border border-boosty_green hover:border-boosty_yellow duration-150 transition-all ease-linear"
+                    className="px-[24px] h-[44px] text-boosty_yellow text-lg font-medium bg-body_text rounded-full hover:bg-boosty_green border border-boosty_green hover:border-boosty_yellow duration-150 transition-all ease-linear"
                   >
                     Submit
                   </button>
@@ -230,8 +228,10 @@ const FundSolarProjects = () => {
           </div>
         </div>
 
-        <div className="py-10 lg:py-20">
-          <FAQ items={fundFAQs} />
+        <div className="py-[40px] md:py-[80px] pl-0 lg:pl-[128px]">
+          <div className="bg-[#F3F8F8] rounded-l-[16px] shadow-md">
+            <FAQ items={fundFAQs} />
+          </div>
         </div>
       </div>
 

@@ -8,24 +8,30 @@ import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { SolarAssistantProvider } from "./context/SolarAssistantContext";
 
 const App = () => {
   return (
     <div className="font-openSans">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/become-a-partner" element={<BecomeAPartner />} />
-          <Route path="/fund-solar-projects" element={<FundSolarProjects />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/terms-and-conditions"
-            element={<TermsAndConditions />}
-          />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        </Routes>
-      </Router>
+      <SolarAssistantProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/become-a-partner" element={<BecomeAPartner />} />
+            <Route
+              path="/fund-solar-projects"
+              element={<FundSolarProjects />}
+            />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/terms-and-conditions"
+              element={<TermsAndConditions />}
+            />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </Router>
+      </SolarAssistantProvider>
     </div>
   );
 };

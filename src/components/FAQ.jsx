@@ -16,7 +16,7 @@ const FAQ = ({
 
   return (
     <div id="faq" className={` ${className}`}>
-      <div className="px-[229px] py-[120px] flex items-start flex-col justify-center">
+      <div className="px-[35px] md:pl-[108px] md:pr-[59px] lg:px-[229px] py-[80px] md:py-[96px] lg:py-[120px] flex items-start flex-col justify-center">
         <h2 className="text-[35px] font-[700] mb-10">{title}</h2>
 
         <div className="space-y-0 border border-[#374646] w-full lg:w-[90%] rounded-md">

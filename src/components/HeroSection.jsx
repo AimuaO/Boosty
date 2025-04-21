@@ -1,9 +1,9 @@
 import React from "react";
-import SolarAssistantForm from "./SolarAssistantForm";
+import SolarAssistantApp from "./SolarAssistantApp";
 
 const HeroSection = () => {
   return (
-    <section className="bg-[#F3B921E0] px-[229px] py-[120px] mt-[80px] grid grid-cols-2 place-items-center gap-[82px] text-body_text">
+    <section className="bg-[#F3B921E0] px-[35px] md:px-[132px] lg:px-[229px] py-[80px] md:py-[96px] lg:py-[120px] mt-[10px] lg:mt-[80px] grid grid-cols-1 lg:grid-cols-2 place-items-center gap-[82px] text-body_text lg:h-[428px]">
       <div className="">
         <h1 className="text-[40px] font-[700] leading-tight">
           Need solar? Just talk to the AI assistant 👉🏾
@@ -15,7 +15,7 @@ const HeroSection = () => {
       </div>
 
       <div id="solar-assistant" className="">
-        <SolarAssistantForm />
+        <SolarAssistantApp />
       </div>
     </section>
   );

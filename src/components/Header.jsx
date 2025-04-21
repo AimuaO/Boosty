@@ -30,7 +30,7 @@ const MobileHeader = () => {
   return (
     <>
       {/* Mobile Header - Always visible */}
-      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm px-[20px] md:px-[35px] py-4">
+      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm px-[35px] py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="w-1/3">
             <img src="/boostylogo.svg" alt="Boosty" className="h-8 w-[98px]" />
@@ -151,14 +151,14 @@ const DesktopHeader = () => {
     <header className="h-[65px] flex items-center justify-center px-32 py-10 shadow-lg shadow-black/5 ipad:px-16 fixed top-0 left-0 w-full bg-white z-50">
       <nav className="flex items-center justify-between w-full">
         <img src="/boostylogo.svg" alt="Boosty" />
-        <ul className="flex items-center justify-center gap-10">
+        <ul className="flex items-center justify-center gap-10 w-[65%]">
           <li>
             <Link
               to="/"
               className={
                 isActive("/")
                   ? "font-bold"
-                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
+                  : "font-normal hover:font-medium duration-200 transition-all ease-linear"
               }
             >
               Home
@@ -170,7 +170,7 @@ const DesktopHeader = () => {
               className={
                 isActive("/become-a-partner")
                   ? "font-bold"
-                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
+                  : "font-normal hover:font-medium duration-200 transition-all ease-linear"
               }
             >
               Become a partner
@@ -182,7 +182,7 @@ const DesktopHeader = () => {
               className={
                 isActive("/fund-solar-projects")
                   ? "font-bold"
-                  : "font-normal hover:font-bold duration-200 transition-all ease-linear"
+                  : "font-normal hover:font-medium duration-200 transition-all ease-linear"
               }
             >
               Want to fund solar projects?

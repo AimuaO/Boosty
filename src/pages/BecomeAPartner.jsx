@@ -7,12 +7,13 @@ const BecomeAPartner = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="min-h-screen bg-yellow-500 px-[30px] lg:px-36 pt-14 lg:pt-32 pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-center gap-14">
-        <div className="w-full">
-          <h1 className="font-bold text-[32px] lg:text-[40px] leading-tight">
+      <div className="min-h-[864px] bg-[#F5C13C] px-[20px] lg:px-[229px] lg:pt-32 pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-start gap-14">
+        {/* Power Text  */}
+        <div className="w-full pt-14">
+          <h1 className="font-bold text-[25px] lg:text-[40px] leading-[32px] lg:leading-[50px] w-[85%]">
             Who Can Become a Partner?
           </h1>
-          <p className="font-normal mt-3 w-full lg:w-[90%]">
+          <p className="font-[600] leading-[24px] mt-3 w-full lg:w-[75%]">
             Boosty partners with businesses and individuals dedicated to
             advancing solar energy in Nigeria. You can join us if you are:
           </p>
@@ -56,16 +57,19 @@ const BecomeAPartner = () => {
             </div>
           </div>
         </div>
+        {/* Power Form */}
         <div className="w-full">
           <form
-            className="bg-white w-full lg:w-max shadow-lg px-[25px] lg:px-[40px] py-[45px] rounded-[24px]"
+            className="bg-white w-full lg:w-max shadow-lg px-[25px] lg:px-[32px] py-[40px] rounded-[24px]"
             action="submit"
           >
-            <h1 className="text-[19px] lg:text-[25px] font-[700] mb-4">
+            <h1 className="text-[19px] lg:text-[25px] leading-[32px] font-[700] mb-4">
               Submit Your Details and We Will <br /> Reach You
             </h1>
-            <div className="text-[14px] lg:text-base font-medium my-[10px]">
-              <label>Business Email</label>
+            <div className="text-base font-medium my-[10px]">
+              <label className="font-[600] leading-[24px]">
+                Business Email <span className="text-[#B78A16]">*</span>
+              </label>
             </div>
             <input
               className="mb-[20px] p-[10px] border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -75,8 +79,10 @@ const BecomeAPartner = () => {
             />
             <div className="flex flex-col md:flex-row gap-[1rem] w-full">
               <div className="w-full md:w-1/2">
-                <div className="text-[14px] lg:text-base font-medium my-[10px]">
-                  <label htmlFor="">First Name</label>
+                <div className="text-base font-medium my-[10px]">
+                  <label htmlFor="" className="font-[600] leading-[24px]">
+                    First Name <span className="text-[#B78A16]">*</span>
+                  </label>
                 </div>
                 <input
                   className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -86,8 +92,10 @@ const BecomeAPartner = () => {
               </div>
 
               <div className="w-full md:w-1/2">
-                <div className="text-[14px] lg:text-base font-medium my-[10px]">
-                  <label htmlFor="">Last Name</label>
+                <div className="text-base font-medium my-[10px]">
+                  <label htmlFor="" className="font-[600] leading-[24px]">
+                    Last Name <span className="text-[#B78A16]">*</span>
+                  </label>
                 </div>
 
                 <input
@@ -97,8 +105,8 @@ const BecomeAPartner = () => {
                 />
               </div>
             </div>
-            <div className="text-[14px] lg:text-base font-medium my-[10px] mt-[30px]">
-              <label>Company Name</label>
+            <div className="text-base font-medium my-[10px] mt-[30px]">
+              <label className="font-[600] leading-[24px]">Company Name</label>
             </div>
             <input
               className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -108,8 +116,10 @@ const BecomeAPartner = () => {
             />
             <div className="flex flex-col md:flex-row gap-[1rem] mt-[30px]">
               <div className="w-full md:w-1/2">
-                <div className="text-[14px] lg:text-base font-medium my-[10px]">
-                  <label htmlFor="">Job Title</label>
+                <div className="text-base font-medium my-[10px]">
+                  <label htmlFor="" className="font-[600] leading-[24px]">
+                    Job Title <span className="text-[#B78A16]">*</span>
+                  </label>
                 </div>
                 <input
                   className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -119,8 +129,10 @@ const BecomeAPartner = () => {
               </div>
 
               <div className="w-full md:w-1/2">
-                <div className="text-[14px] lg:text-base font-medium my-[10px]">
-                  <label htmlFor="">Phone Number</label>
+                <div className="text-base font-medium my-[10px]">
+                  <label htmlFor="" className="font-[600] leading-[24px]">
+                    Phone Number <span className="text-[#B78A16]">*</span>
+                  </label>
                 </div>
                 <input
                   className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
@@ -130,7 +142,9 @@ const BecomeAPartner = () => {
               </div>
             </div>
 
-            <p className="mt-[30px]">Which one are you</p>
+            <p className="mt-[30px] font-[600] leading-[24px] mb-5 lg:mb-2">
+              Which one are you <span className="text-[#B78A16]">*</span>
+            </p>
             {/* Radio buttons */}
             <div className="flex flex-col md:flex-row space-x-0 md:space-x-2 lg:space-x-5 gap-3 md:gap-0 mb-8 mt-2 w-full">
               <label className="flex items-center cursor-pointer">
@@ -156,7 +170,7 @@ const BecomeAPartner = () => {
                     )}
                   </div>
                 </div>
-                <span className="text-gray-800 text-sm lg:text-base font-medium ml-1 lg:ml-3 w-max">
+                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
                   Manufacturer
                 </span>
               </label>
@@ -184,7 +198,7 @@ const BecomeAPartner = () => {
                     )}
                   </div>
                 </div>
-                <span className="text-gray-800 text-sm lg:text-base font-medium ml-1 lg:ml-3 w-max">
+                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
                   Installer
                 </span>
               </label>
@@ -211,7 +225,7 @@ const BecomeAPartner = () => {
                     )}
                   </div>
                 </div>
-                <span className="text-gray-800 text-sm lg:text-base font-medium ml-1 lg:ml-3 w-max">
+                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
                   Retailer/Distributor
                 </span>
               </label>
@@ -220,7 +234,7 @@ const BecomeAPartner = () => {
               <div>
                 <button
                   type="button"
-                  className="px-[24px] py-[10px] text-boosty_yellow text-lg font-medium bg-body_text rounded-full hover:bg-boosty_green border border-boosty_green hover:border-boosty_yellow duration-150 transition-all ease-linear"
+                  className="px-[24px] h-[44px] text-boosty_yellow text-lg font-medium bg-body_text rounded-full hover:bg-boosty_green border border-boosty_green hover:border-boosty_yellow duration-150 transition-all ease-linear"
                 >
                   Submit
                 </button>
@@ -230,13 +244,13 @@ const BecomeAPartner = () => {
         </div>
       </div>
       {/* Become A Partner */}
-      <div className="min-h-max py-10 lg:py-20 grid grid-cols-1 lg:grid-cols-2 place-items-center place-content-center px-6 md:px-10 lg:px-36 gap-14 ">
+      <div className="py-[80px] md:py-[96px] lg:py-[120px] px-[35px] md:px-[108px] lg:px-[229px] grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[82px] place-items-center">
         <div>
-          <img src="/becomeapartner.svg" alt="" />
+          <img src="/power_new.svg" alt="Power" />
         </div>
         <div>
           <h2 className="text-[30px] lg:text-[40px] leading-tight mb-[14px] lg:mb-[20px] font-bold">
-            Process to become a partner
+            Process to Become a Partner
           </h2>
 
           <ul className="space-y-3 w-full lg:w-[90%] list-disc pl-8 text-[15px] lg:text-base">

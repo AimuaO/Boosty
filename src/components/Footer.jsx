@@ -8,7 +8,7 @@ const Footer = ({ hasFAQ = false }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   return (
-    <footer className="bg-[#374646] px-[20px] md:px-14 lg:px-20 py-14 text-boosty_yellow font-[700]">
+    <footer className="bg-[#374646] px-[20px] md:px-[35px] lg:px-[128px] py-14 text-boosty_yellow font-[700]">
       <div className="border-b-[0.5px] border-boosty_yellow pb-14 grid grid-col-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="pr-7">
           <h3>Subscribe to Newsletter</h3>
@@ -67,21 +67,19 @@ const Footer = ({ hasFAQ = false }) => {
         <div className="space-y-4">
           <span>Resources & Legal</span>
           <ul className="space-y-3 font-normal">
-            <li>
-              {hasFAQ && (
-                <li>
-                  <ScrollLink
-                    to="faq"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    className="hover:underline underline-offset-4 duration-150 transition-all cursor-pointer"
-                  >
-                    FAQ
-                  </ScrollLink>
-                </li>
-              )}
-            </li>
+            {hasFAQ && (
+              <li>
+                <ScrollLink
+                  to="faq"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className="hover:underline underline-offset-4 duration-150 transition-all cursor-pointer"
+                >
+                  FAQ
+                </ScrollLink>
+              </li>
+            )}
             <li>
               <a
                 href="/terms-and-conditions"
