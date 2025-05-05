@@ -229,7 +229,7 @@ export const SolarAssistantProvider = ({ children }) => {
       reviewItems: "Review Items",
       placeOrder: "Place Order",
       continueApplication: "Continue to Application",
-      tapHereToTalk: "Tap here to talk",
+      tapHereToTalk: "Tap here to start talking",
       addDebitCard: "Add a debit card",
       paySmallSmall: "Pay small-small",
       change: "Change",

@@ -12,7 +12,7 @@ import { SolarAssistantProvider } from "./context/SolarAssistantContext";
 
 const App = () => {
   return (
-    <div className="font-openSans">
+    <div className="font-openSans overflow-x-hidden">
       <SolarAssistantProvider>
         <Router>
           <Header />

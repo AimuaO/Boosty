@@ -1,5 +1,5 @@
 import React from "react";
-import SolarAssistant from "./SolarAssistantApp";
+import SolarAssistantApp from "./SolarAssistantApp";
 
 const TalkAi = () => {
   return (
@@ -9,7 +9,7 @@ const TalkAi = () => {
           Have more questions? The assistant can help you in seconds.
         </h2>
         <div className="flex items-center justify-center">
-          <SolarAssistant buttonText="Talk to me, my friend" />
+          <SolarAssistantApp buttonVariant="friendly" />
         </div>
       </div>
     </section>

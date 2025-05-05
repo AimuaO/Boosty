@@ -11,23 +11,23 @@ import CheckoutScreen from "./CheckoutScreen";
 import ReceiptScreen from "./ReceiptScreen";
 import ApplianceForm from "./ApplianceForm";
 
-const SolarAssistantApp = () => {
+const SolarAssistantApp = (props) => {
   // The view routing is handled within the context
   return (
     <SolarAssistantProvider>
-      <AppContent />
+      <AppContent {...props} />
     </SolarAssistantProvider>
   );
 };
 
-const AppContent = () => {
+const AppContent = ({ buttonVariant }) => {
   // Import the hook from our context
   const { state } = useSolarAssistant();
 
   // Based on the current view in the state, render the appropriate component
   switch (state.view) {
     case "landing":
-      return <LandingComponent />;
+      return <LandingComponent variant={buttonVariant} />;
     case "voiceSelection":
       return <VoiceSelectionScreen />;
     case "voice":
@@ -41,7 +41,7 @@ const AppContent = () => {
     case "appliance":
       return <ApplianceForm />;
     default:
-      return <LandingComponent />;
+      return <LandingComponent variant={buttonVariant} />;
   }
 };
 

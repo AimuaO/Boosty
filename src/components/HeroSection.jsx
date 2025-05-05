@@ -15,7 +15,7 @@ const HeroSection = () => {
       </div>
 
       <div id="solar-assistant" className="">
-        <SolarAssistantApp />
+        <SolarAssistantApp buttonVariant="default" />
       </div>
     </section>
   );
