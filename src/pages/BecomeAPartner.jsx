@@ -1,274 +1,134 @@
 import React, { useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 import Footer from "../components/Footer";
+import BoostyButton from "../components/ui/BoostyButton";
+
+const partnerTypes = [
+  {
+    title: "Manufacturers",
+    copy: "Bring dependable solar products into projects serving Nigerian homes and businesses.",
+  },
+  {
+    title: "Retailers & distributors",
+    copy: "Reach more customers through a financing-led buying journey instead of relying only on upfront payment.",
+  },
+  {
+    title: "Installers",
+    copy: "Refer customers, share quotations and audits, and stay connected as projects move from financing to installation.",
+  },
+];
 
 const BecomeAPartner = () => {
   const [userType, setUserType] = useState("Manufacturer");
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="min-h-[864px] bg-[#F5C13C] px-[20px] lg:px-[229px] lg:pt-32 pb-14 lg:pb-16 grid grid-cols-1 lg:grid-cols-2 place-content-start lg:place-content-center place-items-start gap-14">
-        {/* Power Text  */}
-        <div className="w-full pt-14">
-          <h1 className="font-bold text-[25px] lg:text-[40px] leading-[32px] lg:leading-[50px] w-[85%]">
-            Who Can Become a Partner?
-          </h1>
-          <p className="font-[600] leading-[24px] mt-3 w-full lg:w-[75%]">
-            Boosty partners with businesses and individuals dedicated to
-            advancing solar energy in Nigeria. You can join us if you are:
-          </p>
-          <div className="">
-            <div className="flex gap-[1rem] mt-[2rem]">
-              <div>
-                <img src="solarman.svg" alt="" />
-              </div>
-              <div>
-                <h4 className="font-[700]">Solar Manufacturers</h4>
-                <p className="mt-2">
-                  Provide high-quality solar panels, <br /> inverters, or
-                  batteries to power homes <br /> and businesses.
-                </p>
-              </div>
-            </div>
-            <div className="flex gap-[1rem] mt-[2rem]">
-              <div>
-                <img src="solarretailers.svg" alt="" />
-              </div>
-              <div>
-                <h4 className="font-[700]">Solar Retailers</h4>
-                <p className="mt-2">
-                  Sell solar products online or in stores <br /> and want to
-                  integrate with Boosty.
-                </p>
-              </div>
-            </div>
+      <section className="mt-[60px] lg:mt-[80px] bg-[#F3B921]">
+        <div className="max-w-[1240px] mx-auto px-[28px] md:px-[72px] lg:px-[88px] py-[72px] md:py-[96px] grid lg:grid-cols-[1fr_0.9fr] gap-[56px] lg:gap-[88px] items-center">
+          <div>
+            <p className="uppercase tracking-[0.12em] text-xs font-bold text-[#202D2D]/65">Partner with Boosty</p>
+            <h1 className="mt-3 text-[40px] md:text-[54px] font-bold leading-[1.05] max-w-[650px]">
+              Help more people get reliable solar power.
+            </h1>
+            <p className="mt-5 text-[18px] leading-7 font-semibold text-[#202D2D]/80 max-w-[620px]">
+              Boosty connects solar providers with customers who need a clearer path to financing, installation and support.
+            </p>
 
-            <div className="flex gap-[1rem] mt-[2rem]">
-              <div>
-                <img src="solarinstallers.svg" alt="" />
-              </div>
-              <div>
-                <h4 className="font-[700]">Solar Installers</h4>
-                <p className="mt-2">
-                  Offer professional installation services <br /> with a
-                  commitment to quality.
-                </p>
-              </div>
+            <div className="mt-8 grid gap-4">
+              {partnerTypes.map((item) => (
+                <div key={item.title} className="flex gap-3">
+                  <CheckCircle2 size={20} className="mt-1 shrink-0" />
+                  <div>
+                    <p className="font-bold">{item.title}</p>
+                    <p className="text-sm leading-6 text-[#202D2D]/75 mt-1">{item.copy}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+
+          <div className="relative">
+            <img
+              src="/becomeapartner.svg"
+              alt="Solar partnership ecosystem"
+              className="w-full rounded-[28px] bg-white/25"
+            />
+          </div>
         </div>
-        {/* Power Form */}
-        <div className="w-full">
-          <form
-            className="bg-white w-full lg:w-max shadow-lg px-[25px] lg:px-[32px] py-[40px] rounded-[24px]"
-            action="submit"
-          >
-            <h1 className="text-[19px] lg:text-[25px] leading-[32px] font-[700] mb-4">
-              Submit Your Details and We Will <br /> Reach You
-            </h1>
-            <div className="text-base font-medium my-[10px]">
-              <label className="font-[600] leading-[24px]">
-                Business Email <span className="text-[#B78A16]">*</span>
-              </label>
-            </div>
-            <input
-              className="mb-[20px] p-[10px] border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-              type="text"
-              placeholder="you@yourbusiness.com"
-              required
-            />
-            <div className="flex flex-col md:flex-row gap-[1rem] w-full">
-              <div className="w-full md:w-1/2">
-                <div className="text-base font-medium my-[10px]">
-                  <label htmlFor="" className="font-[600] leading-[24px]">
-                    First Name <span className="text-[#B78A16]">*</span>
-                  </label>
-                </div>
-                <input
-                  className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-                  type="text"
-                  placeholder="Brite"
-                />
-              </div>
+      </section>
 
-              <div className="w-full md:w-1/2">
-                <div className="text-base font-medium my-[10px]">
-                  <label htmlFor="" className="font-[600] leading-[24px]">
-                    Last Name <span className="text-[#B78A16]">*</span>
-                  </label>
+      <section className="px-[28px] md:px-[72px] lg:px-[128px] py-[80px] md:py-[96px]">
+        <div className="max-w-[1160px] mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-[48px] lg:gap-[88px] items-start">
+          <div>
+            <p className="uppercase tracking-[0.12em] text-xs font-bold text-[#7A8885]">How it works</p>
+            <h2 className="text-[32px] md:text-[42px] font-bold leading-tight mt-3">
+              A straightforward path into the Boosty network.
+            </h2>
+            <div className="mt-7 space-y-5">
+              {[
+                ["01","Tell us about your business and what you provide."],
+                ["02","We review fit, quality and how we can work together."],
+                ["03","Once onboarded, projects can move through Boosty with clearer handoffs and customer support."],
+              ].map(([n,copy]) => (
+                <div key={n} className="flex gap-4 items-start">
+                  <span className="w-10 h-10 rounded-full bg-[#E8F2F2] border-2 border-[#374646] flex items-center justify-center font-bold text-sm shrink-0">{n}</span>
+                  <p className="pt-2 text-[#52615F] leading-6">{copy}</p>
                 </div>
-
-                <input
-                  className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-                  type="text"
-                  placeholder="Solari"
-                />
-              </div>
+              ))}
             </div>
-            <div className="text-base font-medium my-[10px] mt-[30px]">
-              <label className="font-[600] leading-[24px]">Company Name</label>
-            </div>
-            <input
-              className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-              type="text"
-              placeholder="Boosty"
-              required
-            />
-            <div className="flex flex-col md:flex-row gap-[1rem] mt-[30px]">
-              <div className="w-full md:w-1/2">
-                <div className="text-base font-medium my-[10px]">
-                  <label htmlFor="" className="font-[600] leading-[24px]">
-                    Job Title <span className="text-[#B78A16]">*</span>
-                  </label>
-                </div>
-                <input
-                  className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-                  type="text"
-                  placeholder="Manager"
-                />
-              </div>
+          </div>
 
-              <div className="w-full md:w-1/2">
-                <div className="text-base font-medium my-[10px]">
-                  <label htmlFor="" className="font-[600] leading-[24px]">
-                    Phone Number <span className="text-[#B78A16]">*</span>
-                  </label>
-                </div>
-                <input
-                  className="p-[10px] placeholder:text-sm lg:placeholder:text-base border-[1.5px] border-[#A6A0A3] rounded-[8px] w-full"
-                  type="text"
-                  placeholder="+234 8833 4488"
-                />
-              </div>
-            </div>
+          <form className="bg-white border border-[#DDE5E2] shadow-sm px-[24px] md:px-[32px] py-[32px] rounded-[24px]">
+            <h2 className="text-[24px] md:text-[28px] leading-tight font-bold">
+              Tell us about your business
+            </h2>
+            <p className="text-[#667572] mt-2 mb-6">We’ll review your details and get back to you.</p>
 
-            <p className="mt-[30px] font-[600] leading-[24px] mb-5 lg:mb-2">
-              Which one are you <span className="text-[#B78A16]">*</span>
-            </p>
-            {/* Radio buttons */}
-            <div className="flex flex-col md:flex-row space-x-0 md:space-x-2 lg:space-x-5 gap-3 md:gap-0 mb-8 mt-2 w-full">
-              <label className="flex items-center cursor-pointer">
-                <div className="relative">
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                ["First name","Brite"],
+                ["Last name","Solari"],
+                ["Business email","you@yourbusiness.com"],
+                ["Company name","Your company"],
+                ["Job title","Manager"],
+                ["Phone number","+234…"],
+              ].map(([label,placeholder]) => (
+                <label key={label} className={label === "Business email" || label === "Company name" ? "md:col-span-2" : ""}>
+                  <span className="text-sm font-semibold block mb-2">{label}</span>
                   <input
-                    type="radio"
-                    name="userType"
-                    checked={userType === "Manufacturer"}
-                    onChange={() => setUserType("Manufacturer")}
-                    className="opacity-0 absolute"
+                    className="p-3 border-[1.5px] border-[#C7D0CD] rounded-[10px] w-full outline-none focus:border-[#374646]"
+                    type="text"
+                    placeholder={placeholder}
                   />
-                  <div
-                    className={`w-5 h-5 rounded-full border ${
-                      userType === "Manufacturer"
-                        ? "border-gray-800 bg-gray-800"
-                        : "border-gray-300"
-                    } flex items-center justify-center`}
-                  >
-                    {userType === "Manufacturer" && (
-                      <div className="w-3 h-3 text-amber-400 rounded-full flex items-center justify-center font-bold">
-                        &#10003;
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
-                  Manufacturer
-                </span>
-              </label>
-
-              <label className="flex items-center cursor-pointer">
-                <div className="relative">
-                  <input
-                    type="radio"
-                    name="userType"
-                    checked={userType === "Installer"}
-                    onChange={() => setUserType("Installer")}
-                    className="opacity-0 absolute"
-                  />
-                  <div
-                    className={`w-5 h-5 rounded-full border ${
-                      userType === "Installer"
-                        ? "border-gray-800 bg-gray-800"
-                        : "border-gray-300"
-                    } flex items-center justify-center`}
-                  >
-                    {userType === "Installer" && (
-                      <div className="w-3 h-3 text-amber-400 rounded-full flex items-center justify-center font-bold">
-                        &#10003;
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
-                  Installer
-                </span>
-              </label>
-              <label className="flex items-center cursor-pointer">
-                <div className="relative">
-                  <input
-                    type="radio"
-                    name="userType"
-                    checked={userType === "Retailer/Distributor"}
-                    onChange={() => setUserType("Retailer/Distributor")}
-                    className="opacity-0 absolute"
-                  />
-                  <div
-                    className={`w-5 h-5 rounded-full border ${
-                      userType === "Retailer/Distributor"
-                        ? "border-gray-800 bg-gray-800"
-                        : "border-gray-300"
-                    } flex items-center justify-center`}
-                  >
-                    {userType === "Retailer/Distributor" && (
-                      <div className="w-3 h-3 text-amber-400 rounded-full flex items-center justify-center font-bold">
-                        &#10003;
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <span className="text-gray-800 text-base font-[600] leading-[24px] ml-1 lg:ml-3 w-max">
-                  Retailer/Distributor
-                </span>
-              </label>
+                </label>
+              ))}
             </div>
-            <div className="flex items-center justify-end w-full">
-              <div>
+
+            <p className="mt-6 font-semibold">I am a</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["Manufacturer","Installer","Retailer/Distributor"].map((type) => (
                 <button
+                  key={type}
                   type="button"
-                  className="px-[24px] h-[44px] text-boosty_yellow text-lg font-medium bg-body_text rounded-full hover:bg-boosty_green border border-boosty_green hover:border-boosty_yellow duration-150 transition-all ease-linear"
+                  onClick={() => setUserType(type)}
+                  className={`rounded-full px-4 py-2 text-sm font-bold border ${
+                    userType === type
+                      ? "bg-[#202D2D] text-white border-[#202D2D]"
+                      : "bg-white border-[#D5DEDB] text-[#52615F]"
+                  }`}
                 >
-                  Submit
+                  {type}
                 </button>
-              </div>
+              ))}
             </div>
+
+            <BoostyButton type="button" className="mt-7 w-full">
+              Submit details
+            </BoostyButton>
           </form>
         </div>
-      </div>
-      {/* Become A Partner */}
-      <div className="py-[80px] md:py-[96px] lg:py-[120px] px-[35px] md:px-[108px] lg:px-[229px] grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[82px] place-items-center">
-        <div>
-          <img src="/power_new.svg" alt="Power" />
-        </div>
-        <div>
-          <h2 className="text-[30px] lg:text-[40px] leading-tight mb-[14px] lg:mb-[20px] font-bold">
-            Process to Become a Partner
-          </h2>
+      </section>
 
-          <ul className="space-y-3 w-full lg:w-[90%] list-disc pl-8 text-[15px] lg:text-base">
-            <li className="leading-[1.7]">
-              <span className="font-bold">Step 1:</span> Submit your business
-              details using the partnership form.
-            </li>
-            <li>
-              <span className="font-bold">Step 2:</span> Our team will review
-              your application and reach out.
-            </li>
-            <li>
-              <span className="font-bold">Step 3:</span> Onboarding and
-              integration with Boosty’s platform.
-            </li>
-          </ul>
-        </div>
-      </div>
       <Footer hasFAQ={false} />
     </>
   );
