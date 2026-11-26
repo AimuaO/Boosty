@@ -49,9 +49,9 @@ const BecomeAPartner = () => {
 
           <div className="relative">
             <img
-              src="/becomeapartner.svg"
-              alt="Solar partnership ecosystem"
-              className="w-full rounded-[28px] bg-white/25"
+              src="https://pxeurwkhlqxhy0tq.public.blob.vercel-storage.com/boosty/site/partner-installers-v2.jpg"
+              alt="Solar installers working on a rooftop project in Nigeria"
+              className="w-full aspect-[4/3] object-cover rounded-[28px] shadow-sm"
             />
           </div>
         </div>
