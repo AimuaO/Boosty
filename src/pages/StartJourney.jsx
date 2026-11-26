@@ -36,7 +36,8 @@ const StartJourney = () => {
   const [language, setLanguage] = useState("mixed");
   const [languageOpen, setLanguageOpen] = useState(false);
   const [attachOpen, setAttachOpen] = useState(false);
-  const [voiceHint, setVoiceHint] = useState(true);
+  const [uploadHint, setUploadHint] = useState(true);
+  const [voiceHint, setVoiceHint] = useState(false);
   const [message, setMessage] = useState("");
   const [step, setStep] = useState("source");
   const [messages, setMessages] = useState(() => [
@@ -217,11 +218,11 @@ const StartJourney = () => {
 
             <div className="sticky bottom-0 z-30 relative border-t border-[#E3E9E7] bg-white p-3 md:p-4">
               {attachOpen && (
-                <div className="absolute left-3 bottom-[78px] z-20 w-44 rounded-2xl bg-white border border-[#DCE6E3] shadow-xl p-2">
+                <div className="absolute left-3 bottom-[78px] z-20 w-52 rounded-2xl bg-white border border-[#DCE6E3] shadow-xl p-2">
                   <button
                     type="button"
                     onClick={() => simulateDocument("photo")}
-                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D]"
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D] text-left"
                   >
                     <Camera size={18} />
                     Take a document photo
@@ -229,7 +230,7 @@ const StartJourney = () => {
                   <button
                     type="button"
                     onClick={() => simulateDocument("file")}
-                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D]"
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D] text-left"
                   >
                     <Upload size={18} />
                     Choose a document
@@ -238,14 +239,27 @@ const StartJourney = () => {
               )}
 
               <div className="flex items-end gap-2 rounded-[24px] border border-[#CCD7D4] bg-[#FAFBFA] p-2 pl-2.5">
-                <button
-                  type="button"
-                  onClick={() => setAttachOpen((open) => !open)}
-                  className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#52615F] hover:bg-[#EEF3F1]"
-                  aria-label="Add attachment"
-                >
-                  {attachOpen ? <X size={19} /> : <Paperclip size={19} />}
-                </button>
+                <div className="relative">
+                  {uploadHint && !attachOpen && (
+                    <div className="absolute bottom-11 left-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
+                      Add documents
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAttachOpen((open) => !open);
+                      if (uploadHint) {
+                        setUploadHint(false);
+                        setVoiceHint(true);
+                      }
+                    }}
+                    className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#52615F] hover:bg-[#EEF3F1]"
+                    aria-label="Add documents"
+                  >
+                    {attachOpen ? <X size={19} /> : <Paperclip size={19} />}
+                  </button>
+                </div>
 
                 <textarea
                   ref={textareaRef}
