@@ -9,37 +9,39 @@ import TalkAi from "../components/TalkAi";
 const Homepage = () => {
   const solarFAQs = [
     {
-      question: "Am I eligible for solar financing?",
+      question: "Can Boosty help me understand what solar system I need?",
       answer:
-        "Eligibility is determined by the vetting process of our financial partners. Start by using the Solar Assistant and selecting the BNPL ('pay small-small') option to begin the process.",
+        "Yes. Start by telling Boosty about your home or business and how you use power. The conversation helps gather the right information and guides you toward the next step.",
     },
     {
-      question: "How quickly can I get approved for financing?",
+      question: "Can I get help with financing?",
       answer:
-        "Approvals typically take 1-3 business days once all required documents are submitted.",
+        "Yes. Boosty helps customers prepare for financing, organise required information and documents, and understand what happens next. Final approval is made by the financing partner.",
     },
     {
-      question: "Is Boosty available to residential?",
-      answer: "Yes, Boosty serves both residential and commercial customers.",
-    },
-    {
-      question: "How does the Energy Assistant work?",
+      question: "Do I need to have all my documents before I start?",
       answer:
-        "The Energy Assistant calculates your energy needs, recommends the right solar system, and helps you manage payments.",
+        "No. Start with what you have. Boosty can ask for the right items as they become relevant and help keep track of what is still needed.",
     },
     {
-      question: "Can I pay of my loan early?",
-      answer: "Yes, you can pay off your loan early without any penalties.",
+      question: "Is Boosty for homes and businesses?",
+      answer:
+        "Yes. Boosty supports residential and business customers.",
     },
-    // More FAQ items...
+    {
+      question: "What happens after installation?",
+      answer:
+        "Your Boosty conversation stays available for support after installation, including questions about your system, maintenance, warranties and future upgrades.",
+    },
   ];
+
   return (
     <div className="min-h-screen">
       <HeroSection />
       <PowerNigeria />
       <Calculation />
-      <FAQ items={solarFAQs} />
       <TalkAi />
+      <FAQ items={solarFAQs} />
       <Footer hasFAQ={true} />
     </div>
   );
