@@ -120,9 +120,10 @@ const StartJourney = () => {
   };
 
   return (
-    <main className="bg-[#F7F8F6] pt-[60px] lg:pt-[80px]">
-      <div className="max-w-3xl mx-auto min-h-[calc(100dvh-60px)] lg:min-h-[calc(100dvh-80px)] flex flex-col">
-        <div className="px-4 md:px-6 pt-3 pb-2 flex items-center justify-between gap-3 bg-[#F7F8F6]">
+    <main className="h-[100dvh] bg-[#F7F8F6] overflow-hidden">
+      <div className="max-w-3xl mx-auto h-full flex flex-col">
+        <div className="sticky top-0 z-30 bg-[#F7F8F6] border-b border-[#E3E9E7]">
+          <div className="px-4 md:px-6 pt-3 pb-2 flex items-center justify-between gap-3">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-[#202D2D] text-sm font-semibold"
@@ -160,10 +161,9 @@ const StartJourney = () => {
               </div>
             )}
           </div>
-        </div>
 
-        <div className="px-4 md:px-6 pb-2">
-          <div className="flex items-center gap-3">
+          <div className="px-4 md:px-6 pb-2">
+            <div className="flex items-center gap-3">
             <span className="text-[12px] text-[#74817F] whitespace-nowrap">Getting things ready</span>
             <div className="h-1 flex-1 rounded-full bg-[#DDE4E2] overflow-hidden">
               <div
@@ -171,11 +171,12 @@ const StartJourney = () => {
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="text-[12px] font-semibold text-[#52615F]">{progress}%</span>
+              <span className="text-[12px] font-semibold text-[#52615F]">{progress}%</span>
+            </div>
           </div>
         </div>
 
-        <section className="flex-1 min-h-0 bg-white border-y border-[#E3E9E7] md:mx-4 md:rounded-[22px] md:border">
+        <section className="flex-1 min-h-0 bg-white md:mx-4 md:rounded-[22px] md:border md:border-[#E3E9E7] overflow-hidden">
           <div className="h-full flex flex-col">
             <div className="flex-1 overflow-y-auto px-4 md:px-6 pt-6 pb-4 space-y-5">
               {messages.map((item, index) => (
@@ -212,7 +213,7 @@ const StartJourney = () => {
               )}
             </div>
 
-            <div className="relative border-t border-[#E3E9E7] bg-white p-3 md:p-4">
+            <div className="sticky bottom-0 z-30 relative border-t border-[#E3E9E7] bg-white p-3 md:p-4">
               {attachOpen && (
                 <div className="absolute left-3 bottom-[78px] z-20 w-44 rounded-2xl bg-white border border-[#DCE6E3] shadow-xl p-2">
                   <button
