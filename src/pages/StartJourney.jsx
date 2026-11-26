@@ -10,68 +10,96 @@ const languageOptions = [
 
 const prompts = {
   english: {
-    welcome: "Hi 👋🏾 I’m your Boosty Agent.",
-    reassure: "No forms to fill. Just tell me what you need and I’ll guide you one step at a time.",
-    question: "Is this for your home or business?",
-    placeholder: "Type here, or tap the mic and talk…",
+    hero: "Skip the forms. Tell me what you need, send what you have, and I’ll help you get everything ready.",
+    firstQuestion: "Are you coming directly to Boosty, or did an installer refer you?",
+    secondQuestion: "Got it. Is this for your home or business?",
     afterReply: "Got it. I’ll organise the details as we go.",
+    placeholder: "Type here, or tap the mic and talk…",
   },
   mixed: {
-    welcome: "Hi 👋🏾 I’m your Boosty Agent.",
-    reassure: "No long form wahala. Just tell me wetin you need and I’ll guide you one step at a time.",
-    question: "Na for your home or business?",
-    placeholder: "Type here, or tap the mic make we talk…",
+    hero: "No long form wahala. Tell me wetin you need, send wetin you have, and I’ll help you get everything ready.",
+    firstQuestion: "You come directly to Boosty, or na installer refer you?",
+    secondQuestion: "Got it. Na for your home or business?",
     afterReply: "Got it. I’ll arrange everything as we go.",
+    placeholder: "Type here, or tap the mic make we talk…",
   },
   pidgin: {
-    welcome: "Hi 👋🏾 I go be your Boosty Agent.",
-    reassure: "No long form wahala. Just tell me wetin you need. I go guide you small small.",
-    question: "Na for house or business?",
-    placeholder: "Type here, or tap the mic make we talk…",
+    hero: "No long form wahala. Tell me wetin you need, send wetin you get, make I help you prepare everything.",
+    firstQuestion: "You come directly to Boosty, or na installer send you?",
+    secondQuestion: "I hear you. Na for house or business?",
     afterReply: "I hear you. I go arrange everything as we dey go.",
+    placeholder: "Type here, or tap the mic make we talk…",
   },
 };
 
 const StartJourney = () => {
   const [language, setLanguage] = useState("mixed");
-  const [source, setSource] = useState("direct");
   const [message, setMessage] = useState("");
+  const [step, setStep] = useState("source");
   const [messages, setMessages] = useState(() => [
-    { role: "agent", text: prompts.mixed.question },
+    { role: "agent", text: prompts.mixed.firstQuestion },
   ]);
   const [details, setDetails] = useState({
+    source: "",
     customerType: "",
     documentsReceived: 0,
   });
 
   const copy = useMemo(() => prompts[language], [language]);
-  const progress = details.customerType ? 35 : 18;
+
+  const progress =
+    details.customerType ? 35 : details.source ? 25 : details.documentsReceived > 0 ? 22 : 18;
 
   const changeLanguage = (next) => {
     setLanguage(next);
-    setMessages([{ role: "agent", text: prompts[next].question }]);
+    setStep("source");
+    setDetails({ source: "", customerType: "", documentsReceived: 0 });
+    setMessages([{ role: "agent", text: prompts[next].firstQuestion }]);
   };
 
   const sendMessage = () => {
     const clean = message.trim();
     if (!clean) return;
 
-    setMessages((current) => [
-      ...current,
-      { role: "user", text: clean },
-      { role: "agent", text: copy.afterReply },
-    ]);
-
     const lower = clean.toLowerCase();
-    setDetails((current) => ({
-      ...current,
-      customerType:
+    const nextMessages = [...messages, { role: "user", text: clean }];
+
+    if (step === "source") {
+      const source =
+        lower.includes("installer") || lower.includes("refer")
+          ? "Installer referral"
+          : "Direct to Boosty";
+
+      setDetails((current) => ({ ...current, source }));
+      setStep("customerType");
+      setMessages([
+        ...nextMessages,
+        { role: "agent", text: copy.secondQuestion },
+      ]);
+    } else if (step === "customerType") {
+      const customerType =
         lower.includes("shop") || lower.includes("business") || lower.includes("office")
           ? "Business"
           : lower.includes("home") || lower.includes("house")
           ? "Home"
-          : current.customerType,
-    }));
+          : "";
+
+      setDetails((current) => ({
+        ...current,
+        customerType: customerType || current.customerType,
+      }));
+      setStep("continue");
+      setMessages([
+        ...nextMessages,
+        { role: "agent", text: copy.afterReply },
+      ]);
+    } else {
+      setMessages([
+        ...nextMessages,
+        { role: "agent", text: copy.afterReply },
+      ]);
+    }
+
     setMessage("");
   };
 
@@ -89,6 +117,7 @@ const StartJourney = () => {
             : "Nice. I’ve got it. I’ll pull out the useful details so you no need type them again.",
       },
     ]);
+
     setDetails((current) => ({
       ...current,
       documentsReceived: current.documentsReceived + 1,
@@ -108,23 +137,10 @@ const StartJourney = () => {
 
         <section className="bg-white rounded-[24px] border border-[#DCE6E3] shadow-sm overflow-hidden">
           <div className="px-4 pt-4 md:px-6 md:pt-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#FFF4C8] overflow-hidden shrink-0">
-                <img src="/boosty.gif" alt="Boosty Agent" className="w-full h-full object-contain" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-bold text-[#202D2D]">Boosty Agent</p>
-                <p className="text-sm text-gray-600 truncate">Talk, type or send what you have.</p>
-              </div>
-              <div className="ml-auto text-right shrink-0">
-                <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-gray-400">Progress</p>
-                <p className="text-sm font-bold text-[#202D2D]">{progress}% ready</p>
-              </div>
-            </div>
-
-            <div className="mt-4 rounded-2xl bg-[#FFF8E2] px-4 py-4">
-              <p className="font-bold text-[20px] leading-tight text-[#202D2D]">{copy.welcome}</p>
-              <p className="mt-1.5 text-[#202D2D]/80 text-sm leading-5">{copy.reassure}</p>
+            <div className="rounded-2xl bg-[#FFF8E2] px-4 py-4">
+              <h1 className="font-bold text-[22px] md:text-[26px] leading-tight text-[#202D2D]">
+                {copy.hero}
+              </h1>
             </div>
 
             <div className="flex gap-2 overflow-x-auto py-4">
@@ -142,38 +158,15 @@ const StartJourney = () => {
                 </button>
               ))}
             </div>
-
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              <button
-                onClick={() => setSource("direct")}
-                className={`rounded-xl px-4 py-3 text-left border ${
-                  source === "direct"
-                    ? "border-[#202D2D] bg-[#F3F8F8]"
-                    : "border-[#DCE6E3]"
-                }`}
-              >
-                <span className="block font-bold text-[#202D2D] text-sm">I need solar</span>
-              </button>
-              <button
-                onClick={() => setSource("installer")}
-                className={`rounded-xl px-4 py-3 text-left border ${
-                  source === "installer"
-                    ? "border-[#202D2D] bg-[#F3F8F8]"
-                    : "border-[#DCE6E3]"
-                }`}
-              >
-                <span className="block font-bold text-[#202D2D] text-sm">Installer sent me</span>
-              </button>
-            </div>
           </div>
 
           <div className="px-4 pb-4 md:px-6 md:pb-6">
-            <div className="rounded-[20px] bg-[#F3F8F8] p-4 min-h-[300px] flex flex-col">
+            <div className="rounded-[20px] bg-[#F3F8F8] p-4 min-h-[330px] flex flex-col">
               <div className="space-y-3 flex-1">
                 {messages.map((item, index) => (
                   <div key={index} className="flex items-start gap-2">
                     {item.role === "agent" && (
-                      <div className="w-7 h-7 rounded-full bg-white overflow-hidden shrink-0 border border-[#DCE6E3]">
+                      <div className="w-8 h-8 overflow-hidden shrink-0">
                         <img src="/boosty.gif" alt="" className="w-full h-full object-contain" />
                       </div>
                     )}
@@ -190,7 +183,7 @@ const StartJourney = () => {
                 ))}
               </div>
 
-              <div className="mt-4">
+              <div className="mt-5">
                 <div className="grid grid-cols-3 gap-2 mb-3">
                   <button
                     type="button"
@@ -243,28 +236,52 @@ const StartJourney = () => {
               </div>
             </div>
 
-            {(details.customerType || details.documentsReceived > 0) && (
-              <div className="mt-4 rounded-2xl border border-[#DCE6E3] p-4">
-                <p className="font-bold text-[#202D2D] text-sm">I’ve got this so far</p>
-                <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span className="rounded-full bg-[#F3F8F8] px-3 py-2 text-[#202D2D]">
-                    {source === "installer" ? "Installer referral" : "New solar request"}
-                  </span>
-                  {details.customerType && (
-                    <span className="rounded-full bg-[#F3F8F8] px-3 py-2 text-[#202D2D] flex items-center gap-1">
-                      <Check size={13} />
-                      {details.customerType}
-                    </span>
-                  )}
-                  {details.documentsReceived > 0 && (
-                    <span className="rounded-full bg-[#F3F8F8] px-3 py-2 text-[#202D2D] flex items-center gap-1">
-                      <Check size={13} />
-                      {details.documentsReceived} document{details.documentsReceived > 1 ? "s" : ""}
-                    </span>
-                  )}
+            <div className="mt-4 rounded-2xl bg-[#202D2D] text-white p-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-white/60 text-xs font-bold uppercase tracking-[0.1em]">
+                    Your progress
+                  </p>
+                  <p className="font-bold text-lg mt-1">Getting things ready</p>
                 </div>
+                <span className="text-[#F3B921] font-bold">{progress}%</span>
               </div>
-            )}
+
+              <div className="h-2 rounded-full bg-white/15 mt-4 overflow-hidden">
+                <div
+                  className="h-full bg-[#F3B921] rounded-full"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+
+              <div className="mt-4 space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <Check size={15} className="text-[#F3B921]" />
+                  <span>Journey started</span>
+                </div>
+                {details.source && (
+                  <div className="flex items-center gap-2">
+                    <Check size={15} className="text-[#F3B921]" />
+                    <span>{details.source}</span>
+                  </div>
+                )}
+                {details.customerType && (
+                  <div className="flex items-center gap-2">
+                    <Check size={15} className="text-[#F3B921]" />
+                    <span>{details.customerType}</span>
+                  </div>
+                )}
+                {details.documentsReceived > 0 && (
+                  <div className="flex items-center gap-2">
+                    <Check size={15} className="text-[#F3B921]" />
+                    <span>
+                      {details.documentsReceived} document
+                      {details.documentsReceived > 1 ? "s" : ""} received
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
 
             <p className="text-[11px] leading-4 text-gray-500 mt-4">
               We’ll only ask for documents when they’re needed. Boosty helps organise the application before it goes for partner review.
