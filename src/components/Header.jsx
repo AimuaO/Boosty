@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import BoostyButton from "./ui/BoostyButton";
 
 const MobileHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -191,9 +192,9 @@ const DesktopHeader = () => {
             </Link>
           </li>
         </ul>
-        <button className="w-max h-[36px] px-[24px] font-bold py-[10px] rounded-full border-2 border-boosty_green hover:border-boosty_yellow flex items-center justify-center duration-200 bg-[#E8F2F2] leading-[24px]">
+        <BoostyButton variant="secondary" size="sm">
           Sign In
-        </button>
+        </BoostyButton>
       </nav>
     </header>
   );
