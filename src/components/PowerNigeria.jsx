@@ -6,8 +6,8 @@ const PowerNigeria = () => {
       <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-[48px] lg:gap-[88px] items-center">
         <div className="relative">
           <img
-            src="/powerSection.png"
-            alt="Solar energy in everyday use"
+            src="https://pxeurwkhlqxhy0tq.public.blob.vercel-storage.com/boosty/site/home-family-v2.jpg"
+            alt="A Nigerian family at home benefiting from reliable solar power"
             className="w-full aspect-[4/3] object-cover rounded-[28px]"
           />
           <div className="absolute -bottom-5 right-4 md:right-8 bg-[#202D2D] text-white rounded-[20px] p-4 md:p-5 max-w-[250px] shadow-xl">
