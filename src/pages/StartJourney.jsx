@@ -161,9 +161,10 @@ const StartJourney = () => {
               </div>
             )}
           </div>
+        </div>
 
-          <div className="px-4 md:px-6 pb-2">
-            <div className="flex items-center gap-3">
+        <div className="px-4 md:px-6 pb-2 bg-[#F7F8F6]">
+          <div className="flex items-center gap-3">
             <span className="text-[12px] text-[#74817F] whitespace-nowrap">Getting things ready</span>
             <div className="h-1 flex-1 rounded-full bg-[#DDE4E2] overflow-hidden">
               <div
@@ -172,7 +173,6 @@ const StartJourney = () => {
               />
             </div>
               <span className="text-[12px] font-semibold text-[#52615F]">{progress}%</span>
-            </div>
           </div>
         </div>
 
