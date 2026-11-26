@@ -35,8 +35,8 @@ const FundSolarProjects = () => {
 
           <div className="relative min-h-[380px] lg:min-h-[610px]">
             <img
-              src="/powering.png"
-              alt="Solar power supporting homes and businesses"
+              src="https://pxeurwkhlqxhy0tq.public.blob.vercel-storage.com/boosty/site/fund-clinic-v2.jpg"
+              alt="A community clinic supported by reliable solar power"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#202D2D]/65 via-transparent to-transparent" />
