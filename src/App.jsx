@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import StartJourney from "./pages/StartJourney";
+import OpsWorkspace from "./pages/OpsWorkspace";
 import { SolarAssistantProvider } from "./context/SolarAssistantContext";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/start" element={<StartJourney />} />
+            <Route path="/ops" element={<OpsWorkspace />} />
             <Route path="/become-a-partner" element={<BecomeAPartner />} />
             <Route path="/fund-solar-projects" element={<FundSolarProjects />} />
             <Route path="/cart" element={<Cart />} />
