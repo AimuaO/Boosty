@@ -14,21 +14,21 @@ const prompts = {
     secondQuestion: "Got it. Is this for your home or business?",
     afterReply: "Got it. I’ll organise the details as we go.",
     documentReply: "Nice. I’ve got it. I’ll pull out the useful details so you don’t have to type them again.",
-    placeholder: "Message Boosty…",
+    placeholder: "Type here…",
   },
   mixed: {
     firstQuestion: "You come directly to Boosty, or na installer refer you?",
     secondQuestion: "Got it. Na for your home or business?",
     afterReply: "Got it. I’ll arrange everything as we go.",
     documentReply: "Nice. I’ve got it. I’ll pull out the useful details so you no need type them again.",
-    placeholder: "Message Boosty…",
+    placeholder: "Type here…",
   },
   pidgin: {
     firstQuestion: "You come directly to Boosty, or na installer send you?",
     secondQuestion: "I hear you. Na for house or business?",
     afterReply: "I hear you. I go arrange everything as we dey go.",
     documentReply: "Nice. I don get am. I go pull the useful details so you no go type am again.",
-    placeholder: "Message Boosty…",
+    placeholder: "Type here…",
   },
 };
 
@@ -36,6 +36,7 @@ const StartJourney = () => {
   const [language, setLanguage] = useState("mixed");
   const [languageOpen, setLanguageOpen] = useState(false);
   const [attachOpen, setAttachOpen] = useState(false);
+  const [voiceHint, setVoiceHint] = useState(true);
   const [message, setMessage] = useState("");
   const [step, setStep] = useState("source");
   const [messages, setMessages] = useState(() => [
@@ -223,7 +224,7 @@ const StartJourney = () => {
                     className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D]"
                   >
                     <Camera size={18} />
-                    Take a photo
+                    Take a document photo
                   </button>
                   <button
                     type="button"
@@ -231,7 +232,7 @@ const StartJourney = () => {
                     className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7F8F6] text-sm text-[#202D2D]"
                   >
                     <Upload size={18} />
-                    Upload a file
+                    Choose a document
                   </button>
                 </div>
               )}
@@ -264,13 +265,21 @@ const StartJourney = () => {
                   className="min-h-[40px] max-h-[132px] flex-1 resize-none bg-transparent px-1 py-2 text-[15px] leading-6 text-[#202D2D] placeholder:text-[#97A19F] focus:outline-none overflow-y-auto"
                 />
 
-                <button
-                  type="button"
-                  className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#52615F] hover:bg-[#EEF3F1]"
-                  aria-label="Talk"
-                >
-                  <Mic size={19} />
-                </button>
+                <div className="relative">
+                  {voiceHint && (
+                    <div className="absolute bottom-11 right-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
+                      Tap to talk
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setVoiceHint(false)}
+                    className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#52615F] hover:bg-[#EEF3F1]"
+                    aria-label="Tap to talk"
+                  >
+                    <Mic size={19} />
+                  </button>
+                </div>
 
                 <button
                   type="button"
