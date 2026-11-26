@@ -1,5 +1,5 @@
 import React from "react";
-import { AudioLines, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -10,26 +10,26 @@ const HeroSection = () => {
           Solar + financing, made easier
         </p>
         <h1 className="text-[40px] md:text-[52px] font-[700] leading-[1.05]">
-          Tell Boosty what you need. We’ll help you get ready.
+          Tell Boosty what you need. We’ll help you handle the rest.
         </h1>
         <p className="mt-[18px] leading-[26px] font-[600] text-[18px] max-w-xl">
-          Talk or type in Nigerian English or Pidgin. We’ll help organise your solar needs, financing information and next steps.
+          Talk, type or send what you have. The Boosty Agent helps organise your information and guides you through the next step without long forms.
         </p>
       </div>
 
       <div className="w-full max-w-[470px] bg-white rounded-[28px] p-6 md:p-7 shadow-lg">
-        <div className="w-14 h-14 rounded-full bg-[#F3F8F8] flex items-center justify-center mb-5">
-          <AudioLines size={28} className="text-[#202D2D]" />
+        <div className="w-20 h-20 rounded-full bg-[#F3F8F8] flex items-center justify-center mb-5 overflow-hidden">
+          <img src="/boosty.gif" alt="Boosty Agent" className="w-full h-full object-contain" />
         </div>
         <h2 className="text-[24px] font-bold text-[#202D2D]">Start with the Boosty Agent</h2>
         <p className="text-gray-600 mt-2 mb-6">
-          You don’t need to know your inverter size or battery capacity before you begin.
+          No long forms. No need to organise everything before you start.
         </p>
         <Link
           to="/start"
           className="w-full bg-[#202D2D] text-[#F3B921] rounded-full px-6 py-3 font-bold flex items-center justify-center gap-2 hover:bg-[#2C3E3E] transition-colors"
         >
-          Start your solar journey
+          Talk to Boosty
           <ArrowRight size={18} />
         </Link>
       </div>
