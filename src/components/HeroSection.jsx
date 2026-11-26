@@ -40,8 +40,8 @@ const HeroSection = () => {
 
         <div className="relative min-h-[420px] lg:min-h-[650px] bg-[#D9E9E7]">
           <img
-            src="/powering.png"
-            alt="Reliable solar power for homes and businesses"
+            src="https://pxeurwkhlqxhy0tq.public.blob.vercel-storage.com/boosty/site/home-business-v2.jpg"
+            alt="Reliable solar power supporting a Nigerian small business"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#202D2D]/55 via-transparent to-transparent" />
