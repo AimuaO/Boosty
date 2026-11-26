@@ -15,6 +15,7 @@ import {
   UserRound,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import BoostyButton from "../components/ui/BoostyButton";
 
 const cases = [
   { id:"BST-001", customer:"Unique Oby Integrated", type:"Business", stage:"Documents needed", attention:"2 items missing", next:"Bank statement + ID", waitingOn:"Customer", updated:"12 min ago", priority:"attention" },
@@ -96,7 +97,7 @@ const OpsWorkspace = () => {
 
   const Queue = ({ mobile = false }) => (
     <aside className={`bg-white border border-[#DDE5E2] overflow-hidden flex flex-col ${
-      mobile ? "rounded-none border-x-0 border-b-0 h-full" : "rounded-2xl lg:sticky lg:top-[92px] lg:h-[calc(100vh-116px)]"
+      mobile ? "rounded-none border-x-0 border-b-0 h-full" : "rounded-2xl lg:sticky lg:top-[72px] lg:h-[calc(100vh-92px)]"
     }`}>
       <div className="p-4 border-b border-[#E7ECEA]">
         <div className="flex items-center gap-2 rounded-xl border border-[#D5DEDB] px-3 py-2.5">
@@ -109,19 +110,24 @@ const OpsWorkspace = () => {
           />
         </div>
 
-        <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-          {filters.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setFilter(item.id)}
-              className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold ${
-                filter === item.id ? "bg-[#202D2D] text-white" : "bg-[#F3F6F5] text-[#5F6E6B]"
-              }`}
-            >
-              {item.label} {counts[item.id]}
-            </button>
-          ))}
+        <div className="mt-3 relative">
+          <div className="flex gap-2 overflow-x-auto pb-2 pr-8 snap-x">
+            {filters.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setFilter(item.id)}
+                className={`shrink-0 snap-start rounded-full px-4 py-2 text-xs font-bold border transition-colors ${
+                  filter === item.id
+                    ? "bg-[#202D2D] text-white border-[#202D2D]"
+                    : "bg-white text-[#52615F] border-[#D5DEDB]"
+                }`}
+              >
+                {item.label} {counts[item.id]}
+              </button>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-white to-transparent" />
         </div>
       </div>
 
@@ -204,13 +210,14 @@ const OpsWorkspace = () => {
           <FileText size={18} />
           <h3 className="font-bold">Documents</h3>
         </div>
-        <button
+        <BoostyButton
           type="button"
           onClick={() => setStaffUploadOpen((value) => !value)}
-          className="rounded-full bg-[#202D2D] text-white px-3 py-2 text-xs font-semibold"
+          variant="primary"
+          size="sm"
         >
           Add for customer
-        </button>
+        </BoostyButton>
       </div>
 
       {staffUploadOpen && (
@@ -236,9 +243,9 @@ const OpsWorkspace = () => {
         <div className="flex items-center justify-between gap-4"><span className="text-[#75837F]">Utility bill</span><span className="font-semibold text-[#B06E00]">Missing</span></div>
       </div>
 
-      <button className="mt-5 w-full rounded-full border border-[#202D2D] text-[#202D2D] py-2.5 text-sm font-semibold">
+      <BoostyButton className="mt-5 w-full" variant="secondary" size="sm">
         Ask customer for missing items
-      </button>
+      </BoostyButton>
     </div>
   );
 
@@ -329,35 +336,34 @@ const OpsWorkspace = () => {
   return (
     <main className="min-h-screen bg-[#F5F7F6] text-[#202D2D]">
       <div className="border-b border-[#DDE5E2] bg-white sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.1em] text-[#7D8A87] font-bold">Boosty Operations</p>
-            <h1 className="text-xl md:text-2xl font-bold mt-1">Customer projects</h1>
-          </div>
-          <div className="flex items-center gap-3">
-            <button
+        <div className="max-w-7xl mx-auto h-14 px-4 md:px-6 flex items-center justify-between gap-3">
+          <h1 className="text-lg font-bold">Projects</h1>
+          <div className="flex items-center gap-2">
+            <BoostyButton
               type="button"
+              size="icon"
+              variant="primary"
               onClick={() => {
                 setCreateOpen(true);
                 setNewProjectStep("details");
               }}
-              className="inline-flex items-center gap-1.5 rounded-full bg-[#202D2D] text-white px-3 py-2 text-sm font-semibold"
+              aria-label="Create new project"
+              title="Create new project"
             >
-              <Plus size={16} />
-              New project
-            </button>
-            <Link to="/start" className="hidden sm:inline text-sm font-semibold text-[#202D2D]">
+              <Plus size={18} />
+            </BoostyButton>
+            <Link to="/start" className="hidden sm:inline text-sm font-semibold text-[#202D2D] px-2">
               Customer view
             </Link>
-            <div className="hidden md:flex items-center gap-2 text-sm text-[#667572]">
+            <div className="hidden md:flex items-center gap-2 text-sm text-[#667572] px-2">
               <ShieldCheck size={16} />
-              Signed in as Funmi
+              Funmi
             </div>
           </div>
         </div>
       </div>
 
-      <div className="lg:hidden h-[calc(100dvh-73px)]">
+      <div className="lg:hidden h-[calc(100dvh-56px)]">
         {!mobileDetailOpen ? (
           <Queue mobile />
         ) : (
@@ -374,19 +380,24 @@ const OpsWorkspace = () => {
               <span className="text-xs text-[#7A8885]">{selected.id}</span>
             </div>
 
-            <div className="bg-white border-b border-[#DDE5E2] px-3 py-2 flex gap-2 overflow-x-auto">
-              {mobileTabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setMobileTab(tab.id)}
-                  className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold ${
-                    mobileTab === tab.id ? "bg-[#202D2D] text-white" : "bg-[#F3F6F5] text-[#5F6E6B]"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            <div className="bg-white border-b border-[#DDE5E2] px-3 py-2 relative">
+              <div className="flex gap-2 overflow-x-auto pr-8 pb-1">
+                {mobileTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setMobileTab(tab.id)}
+                    className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold border ${
+                      mobileTab === tab.id
+                        ? "bg-[#202D2D] text-white border-[#202D2D]"
+                        : "bg-white text-[#52615F] border-[#D5DEDB]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-white to-transparent" />
             </div>
 
             <div className="flex-1 overflow-y-auto p-4">
@@ -469,18 +480,14 @@ const OpsWorkspace = () => {
                   Funmi can start the case now, add documents or notes on the customer’s behalf, and invite them to take over when they are ready.
                 </div>
 
-                <button
+                <BoostyButton
                   type="button"
                   onClick={() => setNewProjectStep("invite")}
                   disabled={!newProject.customerName || !newProject.phone}
-                  className={`w-full rounded-full py-3 font-semibold ${
-                    newProject.customerName && newProject.phone
-                      ? "bg-[#202D2D] text-white"
-                      : "bg-[#E7ECEA] text-[#9AA5A2]"
-                  }`}
+                  className={`w-full ${!(newProject.customerName && newProject.phone) ? "opacity-45 cursor-not-allowed" : ""}`}
                 >
                   Create project
-                </button>
+                </BoostyButton>
               </div>
             ) : (
               <div className="p-5 space-y-4">
@@ -502,13 +509,13 @@ const OpsWorkspace = () => {
                 </div>
 
                 <div className="grid gap-2">
-                  <button className="rounded-full bg-[#202D2D] text-white py-3 font-semibold">
+                  <BoostyButton className="w-full">
                     Send invite by SMS
-                  </button>
+                  </BoostyButton>
                   {newProject.email && (
-                    <button className="rounded-full border border-[#202D2D] text-[#202D2D] py-3 font-semibold">
+                    <BoostyButton className="w-full" variant="secondary">
                       Send invite by email
-                    </button>
+                    </BoostyButton>
                   )}
                   <button
                     type="button"
