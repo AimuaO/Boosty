@@ -135,7 +135,7 @@ const Header = () => {
   }, []);
 
   // The AI workspace has its own focused top controls.
-  if (location.pathname === "/start") return null;
+  if (location.pathname === "/start" || location.pathname === "/ops") return null;
 
   return isMobile ? <MobileHeader /> : <DesktopHeader />;
 };
