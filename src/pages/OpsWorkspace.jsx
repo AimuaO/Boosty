@@ -7,6 +7,8 @@ import {
   Clock3,
   FileText,
   MessageCircle,
+  Phone,
+  Plus,
   Search,
   ShieldCheck,
   Upload,
@@ -52,6 +54,14 @@ const OpsWorkspace = () => {
   const [mobileDetailOpen, setMobileDetailOpen] = useState(false);
   const [mobileTab, setMobileTab] = useState("overview");
   const [staffUploadOpen, setStaffUploadOpen] = useState(false);
+  const [createOpen, setCreateOpen] = useState(false);
+  const [newProjectStep, setNewProjectStep] = useState("details");
+  const [newProject, setNewProject] = useState({
+    customerName: "",
+    phone: "",
+    email: "",
+    type: "Business",
+  });
 
   const selected = useMemo(
     () => cases.find((item) => item.id === selectedId) || cases[0],
@@ -324,8 +334,19 @@ const OpsWorkspace = () => {
             <p className="text-xs uppercase tracking-[0.1em] text-[#7D8A87] font-bold">Boosty Operations</p>
             <h1 className="text-xl md:text-2xl font-bold mt-1">Customer projects</h1>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/start" className="text-sm font-semibold text-[#202D2D]">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                setCreateOpen(true);
+                setNewProjectStep("details");
+              }}
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#202D2D] text-white px-3 py-2 text-sm font-semibold"
+            >
+              <Plus size={16} />
+              New project
+            </button>
+            <Link to="/start" className="hidden sm:inline text-sm font-semibold text-[#202D2D]">
               Customer view
             </Link>
             <div className="hidden md:flex items-center gap-2 text-sm text-[#667572]">
@@ -377,6 +398,138 @@ const OpsWorkspace = () => {
           </div>
         )}
       </div>
+
+      {createOpen && (
+        <div className="fixed inset-0 z-50 bg-black/35 flex items-end sm:items-center justify-center">
+          <div className="w-full sm:max-w-lg bg-white rounded-t-[24px] sm:rounded-[24px] shadow-2xl max-h-[90dvh] overflow-y-auto">
+            <div className="px-5 py-4 border-b border-[#E7ECEA] flex items-center justify-between gap-3">
+              <div>
+                <p className="text-xs uppercase tracking-[0.08em] text-[#7B8986] font-bold">New Boosty project</p>
+                <h2 className="text-xl font-bold mt-1">
+                  {newProjectStep === "details" ? "Start for a customer" : "Invite customer to continue"}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setCreateOpen(false)}
+                className="text-sm font-semibold text-[#667572]"
+              >
+                Close
+              </button>
+            </div>
+
+            {newProjectStep === "details" ? (
+              <div className="p-5 space-y-4">
+                <div>
+                  <label className="text-sm font-semibold block mb-1.5">Customer or business name</label>
+                  <input
+                    value={newProject.customerName}
+                    onChange={(e) => setNewProject((p) => ({ ...p, customerName: e.target.value }))}
+                    placeholder="e.g. Akinola Stores"
+                    className="w-full rounded-xl border border-[#D5DEDB] px-3 py-3 outline-none"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {["Business","Home"].map((type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => setNewProject((p) => ({ ...p, type }))}
+                      className={`rounded-xl border px-4 py-3 text-left text-sm font-semibold ${
+                        newProject.type === type ? "border-[#202D2D] bg-[#F3F8F8]" : "border-[#DDE5E2]"
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
+
+                <div>
+                  <label className="text-sm font-semibold block mb-1.5">Phone number</label>
+                  <input
+                    value={newProject.phone}
+                    onChange={(e) => setNewProject((p) => ({ ...p, phone: e.target.value }))}
+                    placeholder="+234…"
+                    className="w-full rounded-xl border border-[#D5DEDB] px-3 py-3 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-sm font-semibold block mb-1.5">Email <span className="font-normal text-[#8A9693]">(optional)</span></label>
+                  <input
+                    value={newProject.email}
+                    onChange={(e) => setNewProject((p) => ({ ...p, email: e.target.value }))}
+                    placeholder="name@example.com"
+                    className="w-full rounded-xl border border-[#D5DEDB] px-3 py-3 outline-none"
+                  />
+                </div>
+
+                <div className="rounded-xl bg-[#F7F9F8] p-4 text-sm text-[#61706D]">
+                  Funmi can start the case now, add documents or notes on the customer’s behalf, and invite them to take over when they are ready.
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setNewProjectStep("invite")}
+                  disabled={!newProject.customerName || !newProject.phone}
+                  className={`w-full rounded-full py-3 font-semibold ${
+                    newProject.customerName && newProject.phone
+                      ? "bg-[#202D2D] text-white"
+                      : "bg-[#E7ECEA] text-[#9AA5A2]"
+                  }`}
+                >
+                  Create project
+                </button>
+              </div>
+            ) : (
+              <div className="p-5 space-y-4">
+                <div className="rounded-2xl bg-[#F3F8F8] p-4">
+                  <p className="font-bold">{newProject.customerName}</p>
+                  <p className="text-sm text-[#6F7D79] mt-1">Project created by Boosty staff</p>
+                </div>
+
+                <div className="rounded-2xl border border-[#DDE5E2] p-4">
+                  <div className="flex items-start gap-3">
+                    <Phone size={18} className="mt-0.5" />
+                    <div>
+                      <p className="font-semibold">Customer confirms their contact</p>
+                      <p className="text-sm text-[#6F7D79] mt-1">
+                        Send a secure link or OTP to {newProject.phone}. The customer confirms the number, creates access, and continues the same project without starting over.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid gap-2">
+                  <button className="rounded-full bg-[#202D2D] text-white py-3 font-semibold">
+                    Send invite by SMS
+                  </button>
+                  {newProject.email && (
+                    <button className="rounded-full border border-[#202D2D] text-[#202D2D] py-3 font-semibold">
+                      Send invite by email
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCreateOpen(false);
+                      setNewProject({ customerName:"", phone:"", email:"", type:"Business" });
+                    }}
+                    className="rounded-full text-[#5F6E6B] py-2.5 text-sm font-semibold"
+                  >
+                    I’ll invite them later
+                  </button>
+                </div>
+
+                <p className="text-xs text-[#7A8885]">
+                  Until the customer confirms access, the project remains staff-created. Boosty can still add documents, notes and progress updates on their behalf.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="hidden lg:grid max-w-7xl mx-auto p-6 grid-cols-[360px_1fr] gap-4">
         <Queue />
