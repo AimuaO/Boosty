@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import BoostyButton from "./ui/BoostyButton";
 
 const HeroSection = () => {
   return (
@@ -25,13 +26,10 @@ const HeroSection = () => {
         <p className="text-gray-600 mt-2 mb-6">
           No long forms. No need to organise everything before you start.
         </p>
-        <Link
-          to="/start"
-          className="w-full bg-[#202D2D] text-[#F3B921] rounded-full px-6 py-3 font-bold flex items-center justify-center gap-2 hover:bg-[#2C3E3E] transition-colors"
-        >
+        <BoostyButton as={Link} to="/start" className="w-full">
           Talk to Boosty
           <ArrowRight size={18} />
-        </Link>
+        </BoostyButton>
       </div>
     </section>
   );
