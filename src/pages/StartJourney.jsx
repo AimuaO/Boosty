@@ -1,5 +1,5 @@
-import React, { useMemo, useRef, useState } from "react";
-import { ArrowLeft, Camera, Check, ChevronDown, Mic, Paperclip, Send, Upload, X } from "lucide-react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft, Camera, Check, ChevronDown, Mic, Paperclip, Send, Upload } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const languageOptions = [
@@ -50,9 +50,35 @@ const StartJourney = () => {
   });
 
   const textareaRef = useRef(null);
+  const attachmentRef = useRef(null);
   const copy = useMemo(() => prompts[language], [language]);
   const activeLanguage = languageOptions.find((option) => option.id === language);
   const progress = details.customerType ? 35 : details.source ? 25 : details.documentsReceived > 0 ? 22 : 18;
+
+  useEffect(() => {
+    const handlePointerDown = (event) => {
+      const isAttachmentTrigger = event.target.closest?.('[data-attachment-control="true"]');
+      if (attachOpen && attachmentRef.current && !attachmentRef.current.contains(event.target) && !isAttachmentTrigger) {
+        setAttachOpen(false);
+      }
+
+      // Coach marks should never get in the way of typing or navigation.
+      if (uploadHint || voiceHint) {
+        const isAttachmentControl =
+          attachmentRef.current?.contains(event.target) ||
+          event.target.closest?.('[data-attachment-control="true"]');
+        const isVoiceControl = event.target.closest?.('[data-voice-control="true"]');
+
+        if (!isAttachmentControl && !isVoiceControl) {
+          setUploadHint(false);
+          setVoiceHint(false);
+        }
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [attachOpen, uploadHint, voiceHint]);
 
   const changeLanguage = (next) => {
     setLanguage(next);
@@ -218,7 +244,7 @@ const StartJourney = () => {
 
             <div className="sticky bottom-0 z-30 relative border-t border-[#E3E9E7] bg-white p-3 md:p-4">
               {attachOpen && (
-                <div className="absolute left-3 bottom-[78px] z-20 w-52 rounded-2xl bg-white border border-[#DCE6E3] shadow-xl p-2">
+                <div ref={attachmentRef} className="absolute left-3 bottom-[78px] z-20 w-52 rounded-2xl bg-white border border-[#DCE6E3] shadow-xl p-2">
                   <button
                     type="button"
                     onClick={() => simulateDocument("photo")}
@@ -239,7 +265,7 @@ const StartJourney = () => {
               )}
 
               <div className="flex items-end gap-2 rounded-[24px] border border-[#CCD7D4] bg-[#FAFBFA] p-2 pl-2.5">
-                <div className="relative">
+                <div className="relative" data-attachment-control="true">
                   {uploadHint && !attachOpen && (
                     <div className="absolute bottom-11 left-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
                       Add documents
@@ -258,15 +284,21 @@ const StartJourney = () => {
                     className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#52615F] hover:bg-[#EEF3F1]"
                     aria-label="Add documents"
                   >
-                    {attachOpen ? <X size={19} /> : <Paperclip size={19} />}
+                    <Paperclip size={19} />
                   </button>
                 </div>
 
                 <textarea
                   ref={textareaRef}
                   value={message}
+                  onFocus={() => {
+                    setUploadHint(false);
+                    setVoiceHint(false);
+                  }}
                   onChange={(event) => {
                     setMessage(event.target.value);
+                    setUploadHint(false);
+                    setVoiceHint(false);
                     resizeTextarea(event.target);
                   }}
                   onKeyDown={(event) => {
@@ -280,7 +312,7 @@ const StartJourney = () => {
                   className="min-h-[40px] max-h-[132px] flex-1 resize-none bg-transparent px-1 py-2 text-[15px] leading-6 text-[#202D2D] placeholder:text-[#97A19F] focus:outline-none overflow-y-auto"
                 />
 
-                <div className="relative">
+                <div className="relative" data-voice-control="true">
                   {voiceHint && (
                     <div className="absolute bottom-11 right-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
                       Tap to talk
