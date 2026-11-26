@@ -123,8 +123,8 @@ const MobileHeader = () => {
 // You can use this conditional render approach in your main layout
 const Header = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const location = useLocation();
 
-  // Update on window resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -134,7 +134,9 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Return mobile or desktop header based on screen size
+  // The AI workspace has its own focused top controls.
+  if (location.pathname === "/start") return null;
+
   return isMobile ? <MobileHeader /> : <DesktopHeader />;
 };
 
