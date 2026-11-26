@@ -175,6 +175,7 @@ const StartJourney = () => {
               <span className="text-[12px] font-semibold text-[#52615F]">{progress}%</span>
           </div>
         </div>
+        </div>
 
         <section className="flex-1 min-h-0 bg-white md:mx-4 md:rounded-[22px] md:border md:border-[#E3E9E7] overflow-hidden">
           <div className="h-full flex flex-col">
