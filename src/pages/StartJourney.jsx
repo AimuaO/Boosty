@@ -243,6 +243,7 @@ const StartJourney = () => {
                   {uploadHint && !attachOpen && (
                     <div className="absolute bottom-11 left-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
                       Add documents
+                      <span className="absolute -bottom-1.5 left-4 w-3 h-3 bg-[#202D2D] rotate-45 rounded-[2px]" />
                     </div>
                   )}
                   <button
@@ -283,6 +284,7 @@ const StartJourney = () => {
                   {voiceHint && (
                     <div className="absolute bottom-11 right-0 whitespace-nowrap rounded-lg bg-[#202D2D] text-white text-[11px] px-2.5 py-1.5 shadow-lg">
                       Tap to talk
+                      <span className="absolute -bottom-1.5 right-3 w-3 h-3 bg-[#202D2D] rotate-45 rounded-[2px]" />
                     </div>
                   )}
                   <button
