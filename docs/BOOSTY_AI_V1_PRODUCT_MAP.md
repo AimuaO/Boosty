@@ -109,3 +109,7 @@ The customer can return to:
 
 ## AI provider principle
 Do not lock the product to one model vendor. Evaluate providers on Nigerian English and Pidgin comprehension, voice naturalness, latency, reliability, privacy and cost. Keep the application layer provider-agnostic where practical.
+
+
+## Delivery workflow
+All AI V1 work is developed on the `boosty-ai-v1` branch and reviewed on a Vercel preview before anything is merged into the existing client branch.
