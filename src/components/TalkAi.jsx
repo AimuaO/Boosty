@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import BoostyButton from "./ui/BoostyButton";
 
 const TalkAi = () => {
   return (
@@ -18,13 +19,10 @@ const TalkAi = () => {
           <MessageCircle size={28} className="text-[#202D2D] mb-4" />
           <p className="font-bold text-xl text-[#202D2D]">Voice or text. English or Pidgin.</p>
           <p className="text-gray-600 mt-2 mb-5">No long technical form before you can get help.</p>
-          <Link
-            to="/start"
-            className="inline-flex items-center gap-2 bg-[#202D2D] text-[#F3B921] font-bold rounded-full px-5 py-3"
-          >
+          <BoostyButton as={Link} to="/start">
             Talk to Boosty
             <ArrowRight size={18} />
-          </Link>
+          </BoostyButton>
         </div>
       </div>
     </section>
