@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BoostyButton from "./ui/BoostyButton";
 
 const Calculation = () => {
   return (
@@ -10,12 +11,9 @@ const Calculation = () => {
           <p className="mt-4 text-white/80 max-w-md">
             Boosty helps you organise the information, documents and next steps without making you figure everything out alone.
           </p>
-          <Link
-            to="/start"
-            className="inline-flex px-[24px] py-[10px] bg-[#E8F2F2] mt-[24px] font-[700] leading-[24px] text-[#202D2D] rounded-[99px] border-2 border-boosty_green hover:border-boosty_yellow duration-200 h-[44px] items-center"
-          >
+          <BoostyButton as={Link} to="/start" variant="secondary" className="mt-6">
             Start your journey
-          </Link>
+          </BoostyButton>
         </div>
 
         <div className="border border-[#769090] p-[16px] lg:p-[47px] space-y-[24px] rounded-[8px]">
